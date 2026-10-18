@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stechgrow - Advisory Dashboard</title>
+  <meta name="description" content="Stechgrow Advisory Recommendation and Business Intelligence Dashboard">
+  
+  <!-- Google Fonts: Urbanist -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Primary Stylesheet -->
+  <link rel="stylesheet" href="Styles.css">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236200FF'/><path d='M21 11C21 8.8 19 7 16.5 7H11C8.8 7 7 8.8 7 11C7 13.2 8.8 15 11 15H21C23.2 15 25 16.8 25 19C25 21.2 23.2 23 21 23H12C9.8 23 8 21.2 8 19' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' fill='none'/></svg>">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- Top Card (Logo & AI Quick Search) -->
+      <div class="sidebar-top-card">
+        <div class="brand-row">
+          <a href="#" class="brand-info">
+            <div class="brand-logo-icon">
+              <!-- Stylized 'S' Logo -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 7.5C16.5 5.57 14.93 4 13 4H8C5.79 4 4 5.79 4 8C4 10.21 5.79 12 8 12H16C18.21 12 20 13.79 20 16C20 18.21 18.21 20 16 20H9C7.07 20 5.5 18.43 5.5 16.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="brand-name">Stechgrow</span>
+          </a>
+          <!-- Sidebar Collapse Toggle Button -->
+          <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" title="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="4"/>
+              <line x1="9" y1="3" x2="9" y2="21"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- AI Quick Search inside top card -->
+        <div class="sidebar-search">
+          <span class="sidebar-search-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input type="text" id="sidebarSearchInput" class="sidebar-search-input" placeholder="AI Quick Search" autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="sidebar-nav">
+        <div class="nav-group-top">
+          
+          <!-- 1. Dashboard -->
+          <a href="#dashboard" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="18" rx="2"/>
+                <rect x="14" y="3" width="7" height="18" rx="2"/>
+              </svg>
+            </span>
+            <span class="nav-text">Dashboard</span>
+          </a>
+
+          <!-- 2. Exploratory Data Analysis -->
+          <a href="#eda" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a10 10 0 1 1 10-10"/>
+                <path d="M12 6v6l4 2"/>
+                <path d="M22 6l-3-3-3 3"/>
+                <path d="M19 3v8"/>
+              </svg>
+            </span>
+            <span class="nav-text">Exploratory Data Analysis</span>
+          </a>
+
+          <!-- 3. Data Analysis -->
+          <a href="#data-analysis" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <polyline points="12 6 12 12 15 15"/>
+                <path d="M17 9l3-3"/>
+              </svg>
+            </span>
+            <span class="nav-text">Data Analysis</span>
+          </a>
+
+          <!-- 4. Risk Detection & Health -->
+          <a href="#risk-health" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+              </svg>
+            </span>
+            <span class="nav-text">Risk Detection & Health</span>
+          </a>
+
+          <!-- 5. Advisory Recommendation (Active) -->
+          <a href="#advisory" class="nav-item active">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <polyline points="8 12 11 15 16 9"/>
+              </svg>
+            </span>
+            <span class="nav-text">Advisory Recommendation</span>
+          </a>
+
+          <!-- 6. Report -->
+          <a href="#report" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </span>
+            <span class="nav-text">Report</span>
+          </a>
+
+          <!-- 7. Employee Dashboard -->
+          <a href="#employee" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </span>
+            <span class="nav-text">Employee Dashboard</span>
+          </a>
+
+        </div>
+
+        <!-- Bottom Navigation Links -->
+        <div class="nav-group-bottom">
+          
+          <!-- 8. Preferences -->
+          <a href="#preferences" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="7" x2="20" y2="7"/>
+                <circle cx="9" cy="7" r="2.2" fill="currentColor"/>
+                <line x1="4" y1="17" x2="20" y2="17"/>
+                <circle cx="15" cy="17" r="2.2" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="nav-text">Preferences</span>
+          </a>
+
+          <!-- 9. Theme -->
+          <a href="#theme" class="nav-item" id="themeToggleItem">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 0 0-10 10c0 4.42 3.58 8 8 8h1a2 2 0 0 0 2-2v-1a2 2 0 0 1 2-2h1a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8z"/>
+                <circle cx="7.5" cy="9.5" r="1.5" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.5" fill="currentColor"/>
+                <circle cx="16.5" cy="9.5" r="1.5" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="nav-text">Theme</span>
+          </a>
+
+          <!-- 10. Help & Support -->
+          <a href="#help" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+              </svg>
+            </span>
+            <span class="nav-text">Help & Support</span>
+          </a>
+
+          <!-- 11. Settings -->
+          <a href="#settings" class="nav-item">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </span>
+            <span class="nav-text">Settings</span>
+          </a>
+
+        </div>
+      </nav>
+
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      
+      <!-- Top Navigation Header -->
+      <header class="top-header">
+        
+        <!-- Left: Upload button + Global Search -->
+        <div class="header-left">
+          <button class="btn-upload" id="uploadBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <span>Upload</span>
+          </button>
+
+          <div class="global-search">
+            <span class="global-search-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+            <input type="text" id="globalSearchInput" class="global-search-input" placeholder="Search for anything" autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Right: AI Sparkle + Notification Bell + Profile Avatar -->
+        <div class="header-right">
+          
+          <!-- AI Sparkle Action -->
+          <button class="btn-ai-sparkle" id="aiSparkleBtn" title="AI Strategic Assistant">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L14.2 8.8L21 11L14.2 13.2L12 20L9.8 13.2L3 11L9.8 8.8L12 2Z" fill="white"/>
+            </svg>
+          </button>
+
+          <!-- Notification Bell -->
+          <button class="btn-icon-square" id="notificationBtn" title="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="notification-badge-dot"></span>
+          </button>
+
+          <!-- Profile Avatar with Online Dot -->
+          <div class="profile-avatar-wrap" id="profileAvatarBtn" title="Alciya - Head of Analytics">
+            <img class="profile-avatar-img" 
+                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" 
+                 alt="User Profile"
+                 onerror="this.onerror=null;this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 40 40\'><rect width=\'40\' height=\'40\' fill=\'%233B0099\'/><circle cx=\'20\' cy=\'15\' r=\'7\' fill=\'%23FFFFFF\'/><path d=\'M8 35c0-6.6 5.4-12 12-12s12 5.4 12 12\' fill=\'%23FFFFFF\'/></svg>'">
+            <span class="profile-status-indicator"></span>
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Page Content Container -->
+      <main class="page-container">
+        
+        <!-- Header Row: Page Title + Actions -->
+        <div class="page-title-row">
+          <h1 class="page-title">Advisory</h1>
+
+          <div class="page-actions-group">
+            <!-- Filter icon button -->
+            <button class="btn-ctrl-icon" id="filterCtrlBtn" title="Filter Settings">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"/>
+                <line x1="4" y1="12" x2="14" y2="12"/>
+                <line x1="4" y1="18" x2="8" y2="18"/>
+              </svg>
+            </button>
+
+            <!-- Refresh icon button -->
+            <button class="btn-ctrl-icon" id="refreshCtrlBtn" title="Refresh Data">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+            </button>
+
+            <!-- Info icon button -->
+            <button class="btn-ctrl-icon" id="infoCtrlBtn" title="Advisory Overview Info">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </button>
+
+            <!-- Primary CTA: Get your Report -->
+            <button class="btn-get-report" id="getReportBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>Get your Report</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Summary Metric Cards Row -->
+        <section class="metrics-row" aria-label="Summary Metrics">
+          
+          <!-- Card 1: Critical Actions -->
+          <div class="metric-card">
+            <div class="metric-left">
+              <div class="metric-icon-box critical">
+                <!-- Red Hazard Warning Triangle -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <span class="metric-label">Critical Actions</span>
+            </div>
+            <span class="metric-number" id="statCriticalActions">3</span>
+          </div>
+
+          <!-- Card 2: Opportunities -->
+          <div class="metric-card">
+            <div class="metric-left">
+              <div class="metric-icon-box opportunity">
+                <!-- Glowing Yellow Lightbulb -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                  <path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/>
+                </svg>
+              </div>
+              <span class="metric-label">Opportunities</span>
+            </div>
+            <span class="metric-number" id="statOpportunities">7</span>
+          </div>
+
+          <!-- Card 3: Completed -->
+          <div class="metric-card">
+            <div class="metric-left">
+              <div class="metric-icon-box completed">
+                <!-- Green Checkmark Circle -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span class="metric-label">Completed</span>
+            </div>
+            <span class="metric-number" id="statCompleted">12</span>
+          </div>
+
+          <!-- Card 4: Potential Impact -->
+          <div class="metric-card">
+            <div class="metric-left">
+              <div class="metric-icon-box impact">
+                <!-- Fuchsia Rupee Symbol -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="6" y1="4" x2="18" y2="4"/>
+                  <line x1="6" y1="9" x2="18" y2="9"/>
+                  <path d="M6 14h6a4 4 0 0 0 0-8H6"/>
+                  <line x1="11" y1="14" x2="18" y2="21"/>
+                </svg>
+              </div>
+              <span class="metric-label">Potential Impact</span>
+            </div>
+            <span class="metric-number">₹1.2M</span>
+          </div>
+
+        </section>
+
+        <!-- Section Subheader: Critical Advisory + Immediate Action Pill + Dropdown -->
+        <div class="section-header-row">
+          <div class="section-header-left">
+            <h2 class="section-title">Critical Advisory</h2>
+            <div class="pill-alert">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <span>Immediate Action Required</span>
+            </div>
+          </div>
+
+          <div class="section-header-right">
+            <select class="dropdown-filter-btn" id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="revenue">Revenue</option>
+              <option value="data-quality">Data Quality</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Advisory Recommendations Grid (2x2 Grid from Screenshot) -->
+        <section class="advisory-grid" id="advisoryGrid">
+          
+          <!-- Card 1 (Row 1 Left): Revenue Decline in Subscription Plan B -->
+          <article class="advisory-card" data-category="revenue" data-id="1">
+            <div class="advisory-card-header">
+              <h3 class="advisory-card-title">Revenue Decline in Subscription Plan B</h3>
+              <div class="advisory-badges-group">
+                <span class="badge badge-high-impact">High Impact</span>
+                <span class="badge badge-revenue">Revenue</span>
+              </div>
+            </div>
+
+            <p class="advisory-card-desc">
+              Subscription Plan B shows a 15% decline in revenue over the last quarter, correlating with a 22% increase in churn in Segment B. Customer feedback indicates pricing concerns.
+            </p>
+
+            <div class="recommended-actions-block">
+              <h4 class="recommended-actions-heading">Recommended Actions:</h4>
+              <ul class="action-items-list">
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Review and adjust retention offers for Segment B</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Conduct pricing analysis and competitor benchmarking</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Implement targeted re-engagement campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="advisory-card-footer">
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon green">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"/>
+                    <polyline points="5 12 12 5 19 12"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Estimated Impact:</span>
+                <span class="footer-metric-val">₹450K potential recovery</span>
+              </div>
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon orange">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Timeline:</span>
+                <span class="footer-metric-val">Implement within 2 weeks</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 (Row 1 Right): Data Quality Issues Affecting Analysis -->
+          <article class="advisory-card" data-category="data-quality" data-id="2">
+            <div class="advisory-card-header">
+              <h3 class="advisory-card-title">Data Quality Issues Affecting Analysis</h3>
+              <div class="advisory-badges-group">
+                <span class="badge badge-high-impact">High Impact</span>
+                <span class="badge badge-data-quality">Data Quality</span>
+              </div>
+            </div>
+
+            <p class="advisory-card-desc">
+              275 missing values detected in transaction records and 14 duplicate entries found. This represents 1% inconsistency rate which may impact forecasting accuracy.
+            </p>
+
+            <div class="recommended-actions-block">
+              <h4 class="recommended-actions-heading">Recommended Actions:</h4>
+              <ul class="action-items-list">
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Fill missing values in transaction dataset</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Review duplicates and merge records</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Implement data validation rules at source</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="advisory-card-footer">
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon green">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"/>
+                    <polyline points="5 12 12 5 19 12"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Estimated Impact:</span>
+                <span class="footer-metric-val">Improved forecast accuracy by 8-12%</span>
+              </div>
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon orange">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Timeline:</span>
+                <span class="footer-metric-val">Resolve within 1 week</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 (Row 2 Left): Revenue Decline in Subscription Plan B (Second Entry) -->
+          <article class="advisory-card" data-category="revenue" data-id="3">
+            <div class="advisory-card-header">
+              <h3 class="advisory-card-title">Revenue Decline in Subscription Plan B</h3>
+              <div class="advisory-badges-group">
+                <span class="badge badge-high-impact">High Impact</span>
+                <span class="badge badge-revenue">Revenue</span>
+              </div>
+            </div>
+
+            <p class="advisory-card-desc">
+              Subscription Plan B shows a 15% decline in revenue over the last quarter, correlating with a 22% increase in churn in Segment B. Customer feedback indicates pricing concerns.
+            </p>
+
+            <div class="recommended-actions-block">
+              <h4 class="recommended-actions-heading">Recommended Actions:</h4>
+              <ul class="action-items-list">
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Review and adjust retention offers for Segment B</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Conduct pricing analysis and competitor benchmarking</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Implement targeted re-engagement campaigns</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="advisory-card-footer">
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon green">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"/>
+                    <polyline points="5 12 12 5 19 12"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Estimated Impact:</span>
+                <span class="footer-metric-val">₹450K potential recovery</span>
+              </div>
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon orange">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Timeline:</span>
+                <span class="footer-metric-val">Implement within 2 weeks</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 (Row 2 Right): Data Quality Issues Affecting Analysis (Second Entry) -->
+          <article class="advisory-card" data-category="data-quality" data-id="4">
+            <div class="advisory-card-header">
+              <h3 class="advisory-card-title">Data Quality Issues Affecting Analysis</h3>
+              <div class="advisory-badges-group">
+                <span class="badge badge-high-impact">High Impact</span>
+                <span class="badge badge-data-quality">Data Quality</span>
+              </div>
+            </div>
+
+            <p class="advisory-card-desc">
+              275 missing values detected in transaction records and 14 duplicate entries found. This represents 1% inconsistency rate which may impact forecasting accuracy.
+            </p>
+
+            <div class="recommended-actions-block">
+              <h4 class="recommended-actions-heading">Recommended Actions:</h4>
+              <ul class="action-items-list">
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Fill missing values in transaction dataset</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Review duplicates and merge records</span>
+                </li>
+                <li class="action-item">
+                  <span class="action-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span>Implement data validation rules at source</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="advisory-card-footer">
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon green">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"/>
+                    <polyline points="5 12 12 5 19 12"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Estimated Impact:</span>
+                <span class="footer-metric-val">Improved forecast accuracy by 8-12%</span>
+              </div>
+              <div class="footer-metric-item">
+                <span class="footer-metric-icon orange">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </span>
+                <span class="footer-metric-label">Timeline:</span>
+                <span class="footer-metric-val">Resolve within 1 week</span>
+              </div>
+            </div>
+          </article>
+
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Interactive Toast Notification -->
+  <div class="toast-notice" id="toastNotice">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EFF9A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <span id="toastMessage">Executive Advisory Report downloaded successfully!</span>
+  </div>
+
+  <!-- Interactive Report Modal -->
+  <div class="modal-backdrop" id="reportModal">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <h3 style="font-size:22px; font-weight:700;">Executive Advisory Report</h3>
+        <button id="closeModalBtn" style="background:transparent; border:none; color:#888; cursor:pointer; font-size:20px;">✕</button>
+      </div>
+      <p style="color:#9295A0; font-size:14.5px; line-height:1.6; margin-bottom:20px;">
+        Your synthesized Q4 Advisory Report has been generated with 4 critical action items, 7 growth opportunities, and a potential net impact of <strong>₹1.2M</strong>.
+      </p>
+      <div style="display:flex; justify-content:flex-end; gap:12px;">
+        <button id="cancelModalBtn" class="btn-upload" style="background:#222; padding:10px 18px;">Close</button>
+        <button id="confirmDownloadBtn" class="btn-get-report" style="padding:10px 20px;">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Interactivity Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Sidebar Collapse Toggle
+      const sidebar = document.getElementById('sidebar');
+      const sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
+      if (sidebarCollapseBtn) {
+        sidebarCollapseBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('collapsed');
+        });
+      }
+
+      // 2. Navigation Item Active Switching
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          navItems.forEach(n => n.classList.remove('active'));
+          item.classList.add('active');
+        });
+      });
+
+      // 3. Category Filter
+      const categoryFilter = document.getElementById('categoryFilter');
+      const advisoryCards = document.querySelectorAll('.advisory-card');
+      
+      categoryFilter.addEventListener('change', () => {
+        const val = categoryFilter.value;
+        advisoryCards.forEach(card => {
+          if (val === 'all' || card.dataset.category === val) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      // 4. Global Search Filter
+      const globalSearchInput = document.getElementById('globalSearchInput');
+      const sidebarSearchInput = document.getElementById('sidebarSearchInput');
+
+      function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        advisoryCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!q || text.includes(q)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      if (globalSearchInput) {
+        globalSearchInput.addEventListener('input', (e) => filterCards(e.target.value));
+      }
+      if (sidebarSearchInput) {
+        sidebarSearchInput.addEventListener('input', (e) => filterCards(e.target.value));
+      }
+
+      // 5. Interactive Checklist in Recommended Actions
+      const actionItems = document.querySelectorAll('.action-item');
+      const statCompleted = document.getElementById('statCompleted');
+      let completedCount = 12;
+
+      actionItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const isDone = item.classList.toggle('completed');
+          if (isDone) {
+            completedCount++;
+            showToast('Action marked as completed!');
+          } else {
+            completedCount = Math.max(0, completedCount - 1);
+          }
+          if (statCompleted) statCompleted.textContent = completedCount;
+        });
+      });
+
+      // 6. Toast Notification Helper
+      const toast = document.getElementById('toastNotice');
+      const toastMessage = document.getElementById('toastMessage');
+      let toastTimer;
+
+      function showToast(msg) {
+        if (!toast) return;
+        toastMessage.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      // 7. Get your Report Modal
+      const getReportBtn = document.getElementById('getReportBtn');
+      const reportModal = document.getElementById('reportModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const cancelModalBtn = document.getElementById('cancelModalBtn');
+      const confirmDownloadBtn = document.getElementById('confirmDownloadBtn');
+
+      if (getReportBtn && reportModal) {
+        getReportBtn.addEventListener('click', () => {
+          reportModal.classList.add('open');
+        });
+        const hideModal = () => reportModal.classList.remove('open');
+        closeModalBtn.addEventListener('click', hideModal);
+        cancelModalBtn.addEventListener('click', hideModal);
+        confirmDownloadBtn.addEventListener('click', () => {
+          hideModal();
+          showToast('Generating executive advisory report PDF...');
+        });
+        reportModal.addEventListener('click', (e) => {
+          if (e.target === reportModal) hideModal();
+        });
+      }
+
+      // 8. Other buttons
+      const uploadBtn = document.getElementById('uploadBtn');
+      if (uploadBtn) {
+        uploadBtn.addEventListener('click', () => {
+          showToast('Upload panel opened for data ingestion.');
+        });
+      }
+
+      const aiSparkleBtn = document.getElementById('aiSparkleBtn');
+      if (aiSparkleBtn) {
+        aiSparkleBtn.addEventListener('click', () => {
+          showToast('AI Advisory: Plan B pricing adjustment could restore 85% of lost ARR.');
+        });
+      }
+
+      const refreshCtrlBtn = document.getElementById('refreshCtrlBtn');
+      if (refreshCtrlBtn) {
+        refreshCtrlBtn.addEventListener('click', () => {
+          refreshCtrlBtn.style.transform = 'rotate(360deg)';
+          refreshCtrlBtn.style.transition = 'transform 0.6s ease';
+          setTimeout(() => {
+            refreshCtrlBtn.style.transform = '';
+            refreshCtrlBtn.style.transition = '';
+            showToast('Advisory telemetry synced successfully.');
+          }, 600);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
