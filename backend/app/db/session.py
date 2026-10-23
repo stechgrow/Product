@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 load_dotenv(ENV_PATH, override=True)
@@ -16,6 +17,9 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 if not DB_URL:
     raise RuntimeError(f"DB_URL not found")
 
+class Base(DeclarativeBase):
+    pass
+
 engine = create_engine(
     DB_URL,
     connect_args={
@@ -23,4 +27,11 @@ engine = create_engine(
         "password": DB_PASSWORD,
     },
     pool_pre_ping=True,
+)
+
+
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    expire_on_commit=False,
 )
