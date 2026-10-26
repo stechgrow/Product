@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { UploadModal } from './UploadModal';
+import { NotificationDropdown, NotificationItem } from './NotificationDropdown';
+import { Toast } from '../ui/Toast';
 
 interface TopHeaderProps {
   onToggleMobileMenu: () => void;
@@ -16,11 +19,51 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
   onAiSparkleClick,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [isNotifDropdownOpen, setIsNotifDropdownOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(3);
+
+  // Toast feedback state
+  const [toast, setToast] = useState<{ show: boolean; message: string; type?: 'success' | 'info' }>({
+    show: false,
+    message: '',
+    type: 'success',
+  });
+
+  const triggerToast = (message: string, type: 'success' | 'info' = 'success') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => {
+      setToast((prev) => ({ ...prev, show: false }));
+    }, 3400);
+  };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setSearchTerm(val);
     if (onGlobalSearch) onGlobalSearch(val);
+  };
+
+  const handleOpenUpload = () => {
+    if (onUploadClick) {
+      onUploadClick();
+    }
+    setIsUploadModalOpen(true);
+  };
+
+  const handleUploadSuccess = (msg: string) => {
+    triggerToast(msg, 'success');
+  };
+
+  const handleNotifAction = (notif: NotificationItem) => {
+    triggerToast(`Opening action for: "${notif.title}"`, 'info');
+  };
+
+  const handleAiSparkle = () => {
+    if (onAiSparkleClick) {
+      onAiSparkleClick();
+    } else {
+      triggerToast('AI Advisory: Plan B pricing re-calibration could recover ₹450K ARR.', 'info');
+    }
   };
 
   return (
@@ -45,8 +88,9 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
         <button
           type="button"
           className="btn-upload"
-          onClick={onUploadClick}
-          title="Upload Dataset or Telemetry"
+          onClick={handleOpenUpload}
+          title="Upload Dataset or Telemetry from PC"
+          id="topHeaderUploadBtn"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -81,7 +125,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
         <button
           type="button"
           className="btn-ai-sparkle"
-          onClick={onAiSparkleClick}
+          onClick={handleAiSparkle}
           title="AI Strategic Assistant"
           aria-label="AI Assistant"
         >
@@ -90,19 +134,34 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           </svg>
         </button>
 
-        {/* Notifications */}
-        <button
-          type="button"
-          className="btn-icon-square"
-          title="Notifications"
-          aria-label="Notifications"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
-          <span className="notification-badge-dot" />
-        </button>
+        {/* Notifications Button & Responsive Flyout */}
+        <div className="notifications-wrapper" style={{ position: 'relative' }}>
+          <button
+            type="button"
+            className={`btn-icon-square ${isNotifDropdownOpen ? 'active' : ''}`}
+            title={`Notifications (${unreadCount} unread)`}
+            aria-label="Notifications"
+            aria-expanded={isNotifDropdownOpen}
+            aria-haspopup="true"
+            id="notificationBellBtn"
+            onClick={() => setIsNotifDropdownOpen((prev) => !prev)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            {unreadCount > 0 && <span className="notification-badge-dot" />}
+          </button>
+
+          {/* Active Notification Flyout */}
+          <NotificationDropdown
+            isOpen={isNotifDropdownOpen}
+            onClose={() => setIsNotifDropdownOpen(false)}
+            unreadCount={unreadCount}
+            onUnreadCountChange={setUnreadCount}
+            onSelectAction={handleNotifAction}
+          />
+        </div>
 
         {/* Profile Avatar */}
         <div className="profile-avatar-wrap" title="Alciya Anand Dodti — Head of Advisory & Analytics">
@@ -114,6 +173,16 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           <span className="profile-status-indicator" title="Online" />
         </div>
       </div>
+
+      {/* PC / Browse File Upload Modal */}
+      <UploadModal
+        isOpen={isUploadModalOpen}
+        onClose={() => setIsUploadModalOpen(false)}
+        onUploadSuccess={handleUploadSuccess}
+      />
+
+      {/* Header Toast Notification */}
+      <Toast show={toast.show} message={toast.message} type={toast.type} />
     </header>
   );
 };
