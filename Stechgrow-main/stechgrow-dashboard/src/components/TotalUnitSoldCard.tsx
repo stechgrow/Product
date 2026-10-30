@@ -1,0 +1,32 @@
+import type { HTMLAttributes } from 'react';
+import StatCard from './StatCard';
+
+export interface TotalUnitSoldCardProps extends HTMLAttributes<HTMLDivElement> {
+  count?: number | string;
+  label?: string;
+}
+
+export default function TotalUnitSoldCard({
+  count = '1 M',
+  label = 'Total Unit Sold',
+  ...props
+}: TotalUnitSoldCardProps) {
+  return (
+    <StatCard
+      label={label}
+      count={count}
+      icon={
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 1024 1024"
+          fill="currentColor"
+          className="text-white shrink-0"
+        >
+          <path d="M704 288h131a32 32 0 0 1 31.9 28.8L886.4 512H822l-16-160H704v96a32 32 0 1 1-64 0v-96H384v96a32 32 0 0 1-64 0v-96H218l-51.3 512H512v64H131.3a32 32 0 0 1-31.8-35.2l57.6-576A32 32 0 0 1 189 288h131v-22.3C320 154.7 405.5 64 512 64s192 90.7 192 201.7zm-64 0v-22.3c0-76.5-57.7-137.7-128-137.7s-128 61.2-128 137.7V288zm201.4 476.2a32 32 0 1 1 45.3 45.1l-128 128a32 32 0 0 1-45.3 0l-128-128a32 32 0 1 1 45.3-45.2l73.3 73.4V608a32 32 0 1 1 64 0v229.5l73.4-73.4z" />
+        </svg>
+      }
+      {...props}
+    />
+  );
+}
