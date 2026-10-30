@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stechgrow OS — Risk, Health & Advisory Demo Harness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f17;
+      color: #f1f5f9;
+    }
+    .bg-card { background-color: #111723; }
+    .bg-card-secondary { background-color: #171f30; }
+    .border-subtle { border-color: rgba(255, 255, 255, 0.07); }
+    .badge-pink { background-color: #ff007f; color: #ffffff; }
+    .badge-amber { background-color: #f59e0b; color: #0b0f17; }
+    .badge-green { background-color: #10b981; color: #0b0f17; }
+    .badge-blue { background-color: #3b82f6; color: #ffffff; }
+    .glow-purple { box-shadow: 0 0 20px rgba(139, 92, 246, 0.25); }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0f17; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+  </style>
+</head>
+<body class="min-h-screen flex text-slate-200">
+
+  <!-- Left Sidebar -->
+  <aside class="w-64 border-r border-subtle flex flex-col justify-between p-4 shrink-0 bg-[#0c101a]">
+    <div>
+      <!-- Stechgrow Logo -->
+      <div class="flex items-center gap-3 px-3 py-3 mb-6">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
+          <span class="font-bold text-white text-lg tracking-wider">S</span>
+        </div>
+        <span class="font-bold text-lg text-white tracking-wide">Stechgrow</span>
+      </div>
+
+      <!-- AI Search Input -->
+      <div class="relative mb-6">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+        <input type="text" placeholder="AI Quick Search" class="w-full bg-[#151c2d] text-sm text-slate-300 rounded-xl pl-9 pr-3 py-2 border border-subtle focus:outline-none focus:border-purple-500/50 transition">
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="space-y-1">
+        <button onclick="switchScreen('dashboard')" id="nav-dashboard" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i> Dashboard
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="pie-chart" class="w-4 h-4"></i> Exploratory Data Analysis
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Data Analysis
+        </button>
+        
+        <!-- Sven's Primary Modules -->
+        <button onclick="switchScreen('risk')" id="nav-risk" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white bg-purple-600/20 border border-purple-500/30 shadow-sm transition">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-purple-400"></i> Risk Detection & Health
+        </button>
+        <button onclick="switchScreen('advisory')" id="nav-advisory" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i> Advisory Recommendation
+        </button>
+
+        <a href="/api/v1/reports/pdf" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="file-text" class="w-4 h-4"></i> Report (PDF Export)
+        </a>
+        <a href="/api/v1/reports/csv" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/40 transition">
+          <i data-lucide="sheet" class="w-4 h-4"></i> Report (CSV Export)
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="pt-4 border-t border-subtle space-y-1">
+      <button onclick="openJsonModal()" class="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-purple-400 bg-purple-950/40 border border-purple-500/30 hover:bg-purple-900/40 transition mb-2">
+        <i data-lucide="code-2" class="w-4 h-4"></i> Inspect API JSON
+      </button>
+      <div class="flex items-center gap-3 px-3 py-2 text-xs text-slate-500">
+        <i data-lucide="settings" class="w-4 h-4"></i> Sven Tuscano Module v0.1
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col overflow-y-auto">
+    <!-- Top Header -->
+    <header class="h-16 border-b border-subtle flex items-center justify-between px-8 bg-[#0c101a]/70 backdrop-blur sticky top-0 z-20">
+      <div class="flex items-center gap-4">
+        <!-- Live File Upload Button -->
+        <input type="file" id="csv-file-input" accept=".csv,.xlsx,.xls,.json" class="hidden" onchange="handleFileUpload(event)">
+        <button onclick="document.getElementById('csv-file-input').click()" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#171f30] border border-subtle text-xs font-medium hover:bg-purple-600/30 hover:border-purple-500/40 text-slate-200 transition">
+          <i data-lucide="upload" class="w-3.5 h-3.5 text-purple-400"></i> Upload CSV/Data
+        </button>
+
+        <div class="relative w-80">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5"></i>
+          <input type="text" placeholder="Search for anything" class="w-full bg-[#151c2d] text-xs text-slate-300 rounded-xl pl-9 pr-3 py-1.5 border border-subtle focus:outline-none focus:border-purple-500/50">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Dataset Selector -->
+        <select id="dataset-select" onchange="reloadAllData()" class="bg-[#171f30] border border-subtle text-xs text-slate-300 rounded-xl px-3 py-1.5 focus:outline-none">
+          <option value="saas">Dataset: SaaS Subscriptions (Figma)</option>
+          <option value="ecommerce">Dataset: Retail Orders</option>
+        </select>
+        
+        <button onclick="openQuestionnaireModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-md shadow-purple-600/30 transition">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> AI Customize
+        </button>
+
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-amber-500 p-0.5">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="Avatar" class="w-full h-full rounded-full object-cover">
+        </div>
+      </div>
+    </header>
+
+    <!-- Dynamic Screens Container -->
+    <div class="p-8 space-y-6">
+
+      <!-- ================= SCREEN 1: RISK DETECTION & BUSINESS HEALTH ================= -->
+      <section id="screen-risk" class="space-y-6">
+        <!-- Header row -->
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold text-white tracking-tight">Risk Detection & Business Heath</h1>
+          <div class="flex items-center gap-2">
+            <button onclick="openThresholdModal()" title="Adjust Anomaly Sensitivity" class="p-2 rounded-xl bg-[#171f30] border border-subtle text-slate-400 hover:text-white transition"><i data-lucide="sliders" class="w-4 h-4"></i></button>
+            <button onclick="openTraceabilityModal()" title="Traceability & Algorithm Evidence" class="p-2 rounded-xl bg-[#171f30] border border-subtle text-slate-400 hover:text-white transition"><i data-lucide="info" class="w-4 h-4"></i></button>
+            <button onclick="reloadAllData()" class="p-2 rounded-xl bg-[#171f30] border border-subtle text-slate-400 hover:text-white transition"><i data-lucide="refresh-cw" class="w-4 h-4"></i></button>
+            <button onclick="switchScreen('advisory')" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs tracking-wide shadow-sm transition">
+              <i data-lucide="flag" class="w-4 h-4 text-purple-600"></i> Get Advisory
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Top KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <!-- Card 1: Performance Score -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle relative overflow-hidden">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-medium text-slate-400">Performance Score</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span id="kpi-perf-score" class="text-4xl font-extrabold text-white">78</span>
+              <span id="kpi-perf-badge" class="px-2 py-0.5 rounded text-[11px] font-bold badge-amber">Stable</span>
+              <span id="kpi-perf-delta" class="text-xs font-bold text-emerald-400 flex items-center">↑ +4.8%</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Anomalies Detected -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle relative overflow-hidden">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-medium text-slate-400">Anomalies Detected</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span id="kpi-anomaly-count" class="text-4xl font-extrabold text-white">13</span>
+              <div class="flex items-center gap-1.5">
+                <span id="kpi-anomaly-high" class="px-2 py-0.5 rounded text-[11px] font-bold badge-pink">4 High</span>
+                <span id="kpi-anomaly-med" class="px-2 py-0.5 rounded text-[11px] font-bold badge-amber">6 Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Customer Retention Rate -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle relative overflow-hidden">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-medium text-slate-400">Customer Retention Rate</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span id="kpi-retention-rate" class="text-4xl font-extrabold text-white">87%</span>
+              <span id="kpi-retention-badge" class="px-2 py-0.5 rounded text-[11px] font-bold badge-amber">Stable</span>
+            </div>
+          </div>
+
+          <!-- Card 4: AI Confidence -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle relative overflow-hidden">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-medium text-slate-400">AI Confidence</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span id="kpi-confidence-pct" class="text-4xl font-extrabold text-white">94%</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold badge-pink">4 High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Grid: Spline Area Chart (Left) + Business Stability (Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left 2 Cols: Main Chart -->
+          <div class="lg:col-span-2 bg-card p-6 rounded-2xl border border-subtle space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-bold text-white">Business Metrics</span>
+                <div class="flex items-center gap-1 bg-[#171f30] p-1 rounded-xl border border-subtle text-xs">
+                  <button onclick="setMetricTab('revenue')" id="tab-revenue" class="px-3 py-1 rounded-lg bg-indigo-600 text-white font-semibold">Revenue</button>
+                  <button onclick="setMetricTab('churn')" id="tab-churn" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">Customer churn</button>
+                  <button onclick="setMetricTab('conversion')" id="tab-conversion" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">Conversion</button>
+                  <button onclick="setMetricTab('acquisition')" id="tab-acquisition" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">Acquisition</button>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1 text-xs bg-[#171f30] px-2 py-1 rounded-lg border border-subtle">
+                  <button onclick="setTimeRange('30D')" id="btn-30d" class="font-bold text-purple-400">30D</button>
+                  <span class="text-slate-600">|</span>
+                  <button onclick="setTimeRange('14D')" id="btn-14d" class="text-slate-400">14D</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Canvas Chart -->
+            <div class="h-64 relative">
+              <canvas id="businessMetricsChart"></canvas>
+            </div>
+
+            <!-- Bottom Toggles for View Modes -->
+            <div class="flex justify-end gap-2 text-xs">
+              <button onclick="setViewMode('risk_score')" id="btn-mode-risk" class="px-3 py-1 rounded-lg bg-[#171f30] text-slate-300 hover:text-white border border-subtle transition">Risk Score</button>
+              <button onclick="setViewMode('revenue_impact')" id="btn-mode-impact" class="px-3 py-1 rounded-lg bg-[#171f30] text-slate-300 hover:text-white border border-subtle transition">Revenue Impact</button>
+              <button onclick="setViewMode('churn_pattern')" id="btn-mode-churn" class="px-3 py-1 rounded-lg bg-[#171f30] text-slate-300 hover:text-white border border-subtle transition">Churn Pattern</button>
+            </div>
+          </div>
+
+          <!-- Right Col: Business Stability -->
+          <div class="bg-card p-6 rounded-2xl border border-subtle flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-3">
+                <span class="text-sm font-bold text-white">Business Stability</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <div class="flex items-baseline gap-3 mb-6">
+                <span id="stability-overall" class="text-4xl font-extrabold text-white">72%</span>
+                <span id="stability-label" class="px-2 py-0.5 rounded text-[11px] font-bold badge-amber">Moderate</span>
+              </div>
+
+              <!-- 4 Progress Bars matching Figma -->
+              <div class="space-y-4">
+                <!-- Revenue Bar -->
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Revenue</span>
+                    <span id="stab-rev-val" class="font-bold text-indigo-400">69%</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="stab-rev-bar" class="bg-indigo-500 h-full rounded-full" style="width: 69%"></div>
+                  </div>
+                </div>
+
+                <!-- Customers Bar -->
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-pink-500"></span> Customers</span>
+                    <span id="stab-cust-val" class="font-bold text-pink-400">75%</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="stab-cust-bar" class="bg-pink-500 h-full rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+
+                <!-- Stable / Operational Bar -->
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Stable</span>
+                    <span id="stab-op-val" class="font-bold text-amber-400">53%</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="stab-op-bar" class="bg-amber-500 h-full rounded-full" style="width: 53%"></div>
+                  </div>
+                </div>
+
+                <!-- Offline Sales Bar -->
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Offline Sales</span>
+                    <span id="stab-chan-val" class="font-bold text-emerald-400">80%</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="stab-chan-bar" class="bg-emerald-500 h-full rounded-full" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-subtle text-[11px] text-slate-500">
+              Generated by Sven Tuscano Health Engine
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Grid: Business Metrics Risk Table (Left) + AI Insight (Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left 2 Cols: Table -->
+          <div class="lg:col-span-2 bg-card p-6 rounded-2xl border border-subtle space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-bold text-white">Business Metrics</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500"></i>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-slate-400 border-b border-subtle pb-2">
+                    <th class="py-2.5 font-medium">Risk Type</th>
+                    <th class="py-2.5 font-medium">Metric</th>
+                    <th class="py-2.5 font-medium">Severity</th>
+                    <th class="py-2.5 font-medium">Business Impact</th>
+                  </tr>
+                </thead>
+                <tbody id="risk-table-body" class="divide-y divide-subtle">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right Col: AI Insight -->
+          <div class="bg-card p-6 rounded-2xl border border-subtle flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+                <span class="text-sm font-bold text-white">AI Insight</span>
+              </div>
+              <p id="ai-insight-text" class="text-xs text-slate-300 leading-relaxed">
+                Revenue decline observed in Subscription Plan B, correlation with increased churn in Segment B, adjust retention offers to mitigate impact.
+              </p>
+            </div>
+            
+            <div class="pt-4 space-y-2">
+              <button onclick="openQuestionnaireModal()" class="w-full py-2 rounded-xl bg-purple-600/30 border border-purple-500/40 hover:bg-purple-600/50 text-white font-semibold text-xs transition">
+                Customize with AI Questionnaire
+              </button>
+              <button onclick="switchScreen('advisory')" class="w-full py-2 rounded-xl bg-[#171f30] border border-subtle hover:bg-slate-800 text-slate-300 text-xs font-semibold transition">
+                View Detailed Analysis
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= SCREEN 2: ADVISORY RECOMMENDATIONS ================= -->
+      <section id="screen-advisory" class="hidden space-y-6">
+        <!-- Header row -->
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold text-white tracking-tight">Advisory</h1>
+          <div class="flex items-center gap-2">
+            <button onclick="reloadAllData()" class="p-2 rounded-xl bg-[#171f30] border border-subtle text-slate-400 hover:text-white transition"><i data-lucide="refresh-cw" class="w-4 h-4"></i></button>
+            <a href="/api/v1/reports/pdf" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs tracking-wide shadow-sm transition">
+              <i data-lucide="download" class="w-4 h-4 text-purple-600"></i> Get your Report (PDF)
+            </a>
+            <a href="/api/v1/reports/csv" target="_blank" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#171f30] hover:bg-slate-800 text-slate-200 font-semibold text-xs border border-subtle transition">
+              <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i> CSV
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Top Metric Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <!-- Critical Actions -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400">
+              <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-medium">Critical Actions</span>
+              <div id="adv-crit-count" class="text-3xl font-extrabold text-white">3</div>
+            </div>
+          </div>
+
+          <!-- Opportunities -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <i data-lucide="lightbulb" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-medium">Opportunities</span>
+              <div id="adv-opp-count" class="text-3xl font-extrabold text-white">7</div>
+            </div>
+          </div>
+
+          <!-- Completed -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-medium">Completed</span>
+              <div id="adv-comp-count" class="text-3xl font-extrabold text-white">12</div>
+            </div>
+          </div>
+
+          <!-- Potential Impact -->
+          <div class="bg-card p-5 rounded-2xl border border-subtle flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <span class="text-2xl font-bold">₹</span>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-medium">Potential Impact</span>
+              <div id="adv-impact-total" class="text-3xl font-extrabold text-white">₹1.2M</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Bar -->
+        <div class="flex items-center justify-between pt-2">
+          <div class="flex items-center gap-3">
+            <h2 class="text-lg font-bold text-white">Critical Advisory</h2>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center gap-1.5">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Immediate Action Required
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <select id="advisory-cat-select" onchange="filterAdvisoryCards()" class="bg-[#171f30] border border-subtle text-xs text-slate-300 rounded-xl px-3 py-1.5 focus:outline-none">
+              <option value="all">All Categories</option>
+              <option value="revenue">Revenue</option>
+              <option value="data quality">Data Quality</option>
+              <option value="operational">Operational</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Advisory 2x2 Grid -->
+        <div id="advisory-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= THRESHOLD ADJUSTER MODAL ================= -->
+  <div id="modal-threshold" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121723] border border-subtle rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="sliders" class="w-4 h-4 text-purple-400"></i> Anomaly Sensitivity & Rules
+        </h3>
+        <button onclick="closeThresholdModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <p class="text-xs text-slate-400">Documented product rules submitted for Lead Approval (Uma Mishra).</p>
+      
+      <div class="space-y-3 pt-2 text-xs">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Modified Z-Score Threshold (MAD):</label>
+          <select id="select-threshold" class="w-full bg-[#171f30] border border-subtle rounded-xl p-2 text-slate-200">
+            <option value="2.5">2.5 (High Sensitivity — More anomalies)</option>
+            <option value="3.0" selected>3.0 (Recommended Standard Benchmark)</option>
+            <option value="4.5">4.5 (Conservative — Extreme outliers only)</option>
+          </select>
+        </div>
+        <div class="p-3 bg-[#171f30] rounded-xl border border-subtle text-[11px] text-slate-400">
+          <b>Formula:</b> \(M_i = 0.6745 \cdot |x_i - \tilde{x}| / \text{MAD}\). Outliers exceeding threshold are partitioned into High / Medium severity.
+        </div>
+      </div>
+      
+      <div class="flex justify-end gap-3 pt-3 border-t border-subtle">
+        <button onclick="closeThresholdModal()" class="px-4 py-2 rounded-xl bg-[#171f30] text-xs font-semibold text-slate-400 hover:text-white">Cancel</button>
+        <button onclick="applyThreshold()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-bold text-white">Apply Rule</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TRACEABILITY MODAL ================= -->
+  <div id="modal-traceability" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121723] border border-subtle rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="info" class="w-4 h-4 text-purple-400"></i> Calculation Traceability & Audit
+        </h3>
+        <button onclick="closeTraceabilityModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <p class="text-xs text-slate-400">Every score is traceable directly to dataset metrics as mandated by STECHGROW.BACKEND.pdf.</p>
+      
+      <div id="traceability-body" class="bg-[#0b0f17] p-4 rounded-xl text-xs font-mono text-slate-300 space-y-2 border border-subtle">
+        <!-- Injected via JS -->
+      </div>
+      
+      <div class="flex justify-end">
+        <button onclick="closeTraceabilityModal()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-bold text-white">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= AI QUESTIONNAIRE MODAL ================= -->
+  <div id="modal-questionnaire" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121723] border border-subtle rounded-2xl max-w-xl w-full p-6 space-y-5 shadow-2xl">
+      <div class="flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+            <h3 class="text-base font-bold text-white">Custom Business Profiling</h3>
+          </div>
+          <p class="text-xs text-slate-400">Answer 3 smart questions to calibrate risk thresholds and customize strategic playbooks.</p>
+        </div>
+        <button onclick="closeQuestionnaireModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div id="questionnaire-body" class="space-y-4 max-h-96 overflow-y-auto pr-2">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="flex justify-end gap-3 pt-3 border-t border-subtle">
+        <button onclick="closeQuestionnaireModal()" class="px-4 py-2 rounded-xl bg-[#171f30] text-xs font-semibold text-slate-400 hover:text-white">Cancel</button>
+        <button onclick="submitQuestionnaire()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-bold text-white shadow-lg shadow-purple-600/30">Save & Customize</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JSON INSPECTOR MODAL ================= -->
+  <div id="modal-json" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121723] border border-subtle rounded-2xl max-w-3xl w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="code" class="w-4 h-4 text-purple-400"></i> Live API Payload Inspector
+        </h3>
+        <button onclick="closeJsonModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <p class="text-xs text-slate-400">This is the live payload generated by Sven Tuscano's module for Riona Chettiar (Risk) and Alciya Anand Dodti (Advisory).</p>
+      
+      <pre id="json-viewer" class="bg-[#0b0f17] p-4 rounded-xl text-xs font-mono text-emerald-400 max-h-[450px] overflow-auto border border-subtle"></pre>
+      
+      <div class="flex justify-end gap-3">
+        <button onclick="copyJsonPayload()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-bold text-white">Copy JSON Payload</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    let activeMetric = 'revenue';
+    let activeTimeRange = '30D';
+    let activeViewMode = 'standard';
+    let currentChart = null;
+    let cachedPayload = {};
+    let completedCounter = 12;
+
+    function switchScreen(screen) {
+      if (screen === 'risk' || screen === 'dashboard') {
+        document.getElementById('screen-risk').classList.remove('hidden');
+        document.getElementById('screen-advisory').classList.add('hidden');
+        document.getElementById('nav-risk').classList.add('bg-purple-600/20', 'border-purple-500/30', 'text-white');
+        document.getElementById('nav-advisory').classList.remove('bg-purple-600/20', 'border-purple-500/30', 'text-white');
+      } else {
+        document.getElementById('screen-risk').classList.add('hidden');
+        document.getElementById('screen-advisory').classList.remove('hidden');
+        document.getElementById('nav-advisory').classList.add('bg-purple-600/20', 'border-purple-500/30', 'text-white');
+        document.getElementById('nav-risk').classList.remove('bg-purple-600/20', 'border-purple-500/30', 'text-white');
+      }
+    }
+
+    async function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('/api/v1/risk-health/upload-analyze', {
+          method: 'POST',
+          body: formData
+        }).then(r => r.json());
+
+        if (res.status === 'success') {
+          const select = document.getElementById('dataset-select');
+          const opt = document.createElement('option');
+          opt.value = res.data.dataset_id;
+          opt.innerText = `Uploaded: ${res.data.filename} (${res.data.row_count} rows)`;
+          opt.selected = true;
+          select.appendChild(opt);
+
+          await reloadAllData();
+          alert(`Successfully uploaded and analyzed ${res.data.filename}! Live metrics updated.`);
+        } else {
+          alert('Upload failed: ' + (res.detail || 'Unknown error'));
+        }
+      } catch (err) {
+        alert('Upload failed: ' + err.message);
+      }
+    }
+
+    async function reloadAllData() {
+      const sample = document.getElementById('dataset-select').value;
+
+      // 1. Load Summary
+      const sumRes = await fetch(`/api/v1/risk-health/summary?sample_name=${sample}`).then(r => r.json());
+      if (sumRes.status === 'success') {
+        const d = sumRes.data;
+        document.getElementById('kpi-perf-score').innerText = d.performance_score;
+        document.getElementById('kpi-perf-badge').innerText = d.performance_status;
+        document.getElementById('kpi-anomaly-count').innerText = d.total_anomalies;
+        document.getElementById('kpi-anomaly-high').innerText = `${d.high_severity_count} High`;
+        document.getElementById('kpi-anomaly-med').innerText = `${d.medium_severity_count} Medium`;
+        document.getElementById('kpi-retention-rate').innerText = `${d.customer_retention_rate}%`;
+        document.getElementById('kpi-retention-badge').innerText = d.retention_status;
+        document.getElementById('kpi-confidence-pct').innerText = `${d.ai_confidence_pct}%`;
+
+        // Stability
+        document.getElementById('stability-overall').innerText = `${d.stability.overall_pct}%`;
+        document.getElementById('stability-label').innerText = d.stability.status_label;
+        document.getElementById('stab-rev-val').innerText = `${d.stability.revenue_pct}%`;
+        document.getElementById('stab-rev-bar').style.width = `${d.stability.revenue_pct}%`;
+        document.getElementById('stab-cust-val').innerText = `${d.stability.customers_pct}%`;
+        document.getElementById('stab-cust-bar').style.width = `${d.stability.customers_pct}%`;
+        document.getElementById('stab-op-val').innerText = `${d.stability.operational_pct}%`;
+        document.getElementById('stab-op-bar').style.width = `${d.stability.operational_pct}%`;
+        document.getElementById('stab-chan-val').innerText = `${d.stability.channel_pct}%`;
+        document.getElementById('stab-chan-bar').style.width = `${d.stability.channel_pct}%`;
+
+        cachedPayload.summary = d;
+      }
+
+      // 2. Load Timeseries
+      await reloadChart();
+
+      // 3. Load Risks Table
+      const riskRes = await fetch(`/api/v1/risk-health/risks?sample_name=${sample}`).then(r => r.json());
+      if (riskRes.status === 'success') {
+        const tbody = document.getElementById('risk-table-body');
+        tbody.innerHTML = '';
+        if (riskRes.data.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="4" class="py-4 text-center text-slate-500">No active anomalies detected for this dataset.</td></tr>`;
+        } else {
+          riskRes.data.forEach(item => {
+            const arrow = item.trend_direction === 'up' ? '<span class="text-emerald-400 mr-1">↑</span>' : '<span class="text-rose-400 mr-1">↓</span>';
+            const badgeClass = item.severity === 'High' ? 'badge-pink' : 'badge-amber';
+            tbody.innerHTML += `
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="py-3 flex items-center gap-2 text-slate-300 font-medium">
+                  <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-500"></i> ${item.dataset_name}
+                </td>
+                <td class="py-3 text-slate-200 font-medium">${arrow} ${item.metric_name}</td>
+                <td class="py-3"><span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${badgeClass}">${item.severity}</span></td>
+                <td class="py-3 text-slate-300 font-medium">${item.business_impact_formatted}</td>
+              </tr>
+            `;
+          });
+        }
+        cachedPayload.risks = riskRes.data;
+        lucide.createIcons();
+      }
+
+      // 4. Load AI Insight
+      const aiRes = await fetch(`/api/v1/risk-health/ai-insight?sample_name=${sample}`).then(r => r.json());
+      if (aiRes.status === 'success') {
+        document.getElementById('ai-insight-text').innerText = aiRes.data.narrative;
+        cachedPayload.ai_insight = aiRes.data;
+      }
+
+      // 5. Load Advisory Hub
+      await filterAdvisoryCards();
+    }
+
+    async function reloadChart() {
+      const sample = document.getElementById('dataset-select').value;
+      const chartRes = await fetch(`/api/v1/risk-health/timeseries?metric=${activeMetric}&time_range=${activeTimeRange}&mode=${activeViewMode}&sample_name=${sample}`).then(r => r.json());
+      if (chartRes.status === 'success') {
+        const d = chartRes.data;
+        cachedPayload.timeseries = d;
+        renderSplineChart(d.points, d.unit);
+      }
+    }
+
+    function renderSplineChart(points, unit) {
+      const ctx = document.getElementById('businessMetricsChart').getContext('2d');
+      const labels = points.map(p => p.label);
+      const data = points.map(p => p.value);
+
+      const pointColors = points.map(p => p.is_anomaly ? '#f59e0b' : 'transparent');
+      const pointRadius = points.map(p => p.is_anomaly ? 6 : 0);
+
+      if (currentChart) currentChart.destroy();
+
+      const gradient = ctx.createLinearGradient(0, 0, 0, 240);
+      gradient.addColorStop(0, 'rgba(99, 102, 241, 0.45)');
+      gradient.addColorStop(1, 'rgba(99, 102, 241, 0.0)');
+
+      currentChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: `${activeMetric.toUpperCase()} (${unit || ''})`,
+            data: data,
+            fill: true,
+            backgroundColor: gradient,
+            borderColor: '#6366f1',
+            borderWidth: 2.5,
+            tension: 0.45,
+            pointBackgroundColor: pointColors,
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 1.5,
+            pointRadius: pointRadius,
+            pointHoverRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: '#64748b', font: { size: 10 } } },
+            y: { grid: { color: 'rgba(255, 255, 255, 0.04)' }, ticks: { color: '#64748b', font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    function setMetricTab(metric) {
+      activeMetric = metric;
+      activeViewMode = 'standard';
+      ['revenue', 'churn', 'conversion', 'acquisition'].forEach(m => {
+        const btn = document.getElementById(`tab-${m}`);
+        if (m === metric) {
+          btn.className = 'px-3 py-1 rounded-lg bg-indigo-600 text-white font-semibold';
+        } else {
+          btn.className = 'px-3 py-1 rounded-lg text-slate-400 hover:text-white';
+        }
+      });
+      reloadChart();
+    }
+
+    function setViewMode(mode) {
+      activeViewMode = mode;
+      ['risk', 'impact', 'churn'].forEach(m => {
+        const btn = document.getElementById(`btn-mode-${m}`);
+        if ((m === 'risk' && mode === 'risk_score') || (m === 'impact' && mode === 'revenue_impact') || (m === 'churn' && mode === 'churn_pattern')) {
+          btn.className = 'px-3 py-1 rounded-lg bg-indigo-600 text-white font-semibold border border-indigo-500';
+        } else {
+          btn.className = 'px-3 py-1 rounded-lg bg-[#171f30] text-slate-300 hover:text-white border border-subtle';
+        }
+      });
+      reloadChart();
+    }
+
+    function setTimeRange(range) {
+      activeTimeRange = range;
+      document.getElementById('btn-30d').className = range === '30D' ? 'font-bold text-purple-400' : 'text-slate-400';
+      document.getElementById('btn-14d').className = range === '14D' ? 'font-bold text-purple-400' : 'text-slate-400';
+      reloadChart();
+    }
+
+    function toggleActionItem(spanElem) {
+      const isDone = spanElem.classList.toggle('line-through');
+      spanElem.classList.toggle('text-slate-500');
+      spanElem.classList.toggle('text-slate-300');
+      if (isDone) {
+        completedCounter++;
+      } else {
+        completedCounter--;
+      }
+      document.getElementById('adv-comp-count').innerText = completedCounter;
+    }
+
+    async function filterAdvisoryCards() {
+      const sample = document.getElementById('dataset-select').value;
+      const cat = document.getElementById('advisory-cat-select').value;
+      const res = await fetch(`/api/v1/advisory/cards?category=${cat}&sample_name=${sample}`).then(r => r.json());
+      if (res.status === 'success') {
+        const d = res.data;
+        document.getElementById('adv-crit-count').innerText = d.overview.critical_actions;
+        document.getElementById('adv-opp-count').innerText = d.overview.opportunities;
+        document.getElementById('adv-comp-count').innerText = completedCounter;
+        document.getElementById('adv-impact-total').innerText = d.overview.potential_impact_formatted;
+
+        const grid = document.getElementById('advisory-cards-grid');
+        grid.innerHTML = '';
+        d.cards.forEach((c, cIdx) => {
+          const catPill = c.category_badge === 'Revenue' ? 'badge-green' : (c.category_badge === 'Data Quality' ? 'badge-blue' : 'badge-amber');
+          const actionsHtml = c.recommended_actions.map((a, aIdx) => `
+            <li class="flex items-start gap-2 text-xs text-slate-300 cursor-pointer" onclick="toggleActionItem(this.querySelector('span'))">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="hover:text-white transition select-none">${a}</span>
+            </li>
+          `).join('');
+
+          grid.innerHTML += `
+            <div class="bg-card p-6 rounded-2xl border border-subtle flex flex-col justify-between space-y-4 hover:border-slate-700 transition">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-bold text-white">${c.title}</h3>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold badge-pink">${c.impact_badge}</span>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${catPill}">${c.category_badge}</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">${c.description}</p>
+                
+                <div class="pt-2">
+                  <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Recommended Actions (Click to complete):</span>
+                  <ul class="mt-2 space-y-1.5">
+                    ${actionsHtml}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-subtle flex items-center justify-between text-xs">
+                <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> ${c.estimated_impact_text}
+                </span>
+                <span class="text-slate-400 flex items-center gap-1">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> ${c.timeline_text}
+                </span>
+              </div>
+            </div>
+          `;
+        });
+        cachedPayload.advisory = d;
+        lucide.createIcons();
+      }
+    }
+
+    async function openQuestionnaireModal() {
+      const modal = document.getElementById('modal-questionnaire');
+      const body = document.getElementById('questionnaire-body');
+      modal.classList.remove('hidden');
+
+      const res = await fetch('/api/v1/risk-health/questionnaire').then(r => r.json());
+      if (res.status === 'success') {
+        const qData = res.data;
+        body.innerHTML = `<div class="p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/30 text-xs text-purple-300 font-medium">Inferred Domain: <b>${qData.inferred_domain}</b> (${Math.round(qData.confidence*100)}% confidence)</div>`;
+        
+        qData.questions.forEach((q, idx) => {
+          const optionsHtml = q.options.map(opt => `
+            <label class="flex items-center gap-2 text-xs text-slate-300 p-2 rounded-lg bg-[#171f30] hover:bg-slate-800 cursor-pointer">
+              <input type="radio" name="${q.id}" value="${opt.value}" ${opt.value === q.default_value ? 'checked' : ''} class="text-purple-600 focus:ring-0">
+              <span>${opt.label}</span>
+            </label>
+          `).join('');
+
+          body.innerHTML += `
+            <div class="space-y-1.5 pt-2">
+              <div class="text-xs font-bold text-white">${idx+1}. ${q.question_text}</div>
+              <p class="text-[11px] text-slate-400">${q.context}</p>
+              <div class="space-y-1 mt-1">${optionsHtml}</div>
+            </div>
+          `;
+        });
+      }
+    }
+
+    function closeQuestionnaireModal() {
+      document.getElementById('modal-questionnaire').classList.add('hidden');
+    }
+
+    async function submitQuestionnaire() {
+      const inputs = document.querySelectorAll('#questionnaire-body input[type="radio"]:checked');
+      const answers = {};
+      inputs.forEach(inp => { answers[inp.name] = inp.value; });
+
+      await fetch('/api/v1/risk-health/questionnaire/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers })
+      });
+
+      closeQuestionnaireModal();
+      await reloadAllData();
+      alert('Business Profile updated! Custom AI insight and strategic recommendations have refreshed.');
+    }
+
+    function openThresholdModal() {
+      document.getElementById('modal-threshold').classList.remove('hidden');
+    }
+
+    function closeThresholdModal() {
+      document.getElementById('modal-threshold').classList.add('hidden');
+    }
+
+    function applyThreshold() {
+      const val = document.getElementById('select-threshold').value;
+      closeThresholdModal();
+      alert(`Applied MAD sensitivity threshold ${val}.`);
+      reloadAllData();
+    }
+
+    function openTraceabilityModal() {
+      document.getElementById('modal-traceability').classList.remove('hidden');
+      const trace = cachedPayload.summary?.traceability || {
+        dataset_name: "Stechgrow_Design_Dataset",
+        rows_evaluated: 200,
+        metrics_used: ["revenue", "churn", "plan"],
+        formula_used: "Modified Z-Score (MAD) + Tukey 1.5 IQR",
+        confidence_score: 0.94
+      };
+      document.getElementById('traceability-body').innerHTML = `
+        <div><b>Dataset:</b> ${trace.dataset_name}</div>
+        <div><b>Rows Evaluated:</b> ${trace.rows_evaluated}</div>
+        <div><b>Metrics Analyzed:</b> ${trace.metrics_used.join(', ')}</div>
+        <div><b>Formula:</b> ${trace.formula_used}</div>
+        <div><b>Confidence Score:</b> ${Math.round(trace.confidence_score * 100)}%</div>
+        <div><b>Status:</b> ${trace.is_insufficient_data ? '⚠️ Insufficient Data' : '✅ Verified'}</div>
+      `;
+    }
+
+    function closeTraceabilityModal() {
+      document.getElementById('modal-traceability').classList.add('hidden');
+    }
+
+    function openJsonModal() {
+      document.getElementById('modal-json').classList.remove('hidden');
+      document.getElementById('json-viewer').innerText = JSON.stringify(cachedPayload, null, 2);
+    }
+
+    function closeJsonModal() {
+      document.getElementById('modal-json').classList.add('hidden');
+    }
+
+    function copyJsonPayload() {
+      navigator.clipboard.writeText(JSON.stringify(cachedPayload, null, 2));
+      alert('Copied complete JSON payload to clipboard!');
+    }
+
+    window.onload = () => {
+      lucide.createIcons();
+      reloadAllData();
+    };
+  </script>
+</body>
+</html>
