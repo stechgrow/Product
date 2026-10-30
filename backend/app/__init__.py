@@ -1,0 +1,1 @@
+"""Stechgrow backend application package."""
