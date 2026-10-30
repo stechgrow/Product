@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stechgrow OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Stechgrow home">
+        <span class="brand-mark">S</span><span class="brand-name">stechgrow<span>OS</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-item" href="#dashboard" data-route="dashboard"><span class="nav-icon">▦</span>Dashboard</a>
+        <a class="nav-item" href="#upload" data-route="upload"><span class="nav-icon">⇧</span>Upload Flow</a>
+        <a class="nav-item" href="#eda" data-route="eda"><span class="nav-icon">◫</span>EDA & Data Analysis</a>
+        <a class="nav-item" href="#advisory" data-route="advisory"><span class="nav-icon">⌁</span>RDH & Advisory</a>
+        <a class="nav-item" href="#reports" data-route="reports"><span class="nav-icon">▤</span>Report & ED</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="workspace-label">PREFERENCES</div>
+        <a class="nav-item" href="#settings" data-route="settings"><span class="nav-icon">⚙</span>Settings</a>
+        <div class="profile">
+          <div class="avatar">C</div><div class="profile-copy"><strong>Caleb Fernandes</strong><small>Workspace member</small></div><span class="more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong id="crumbTitle">Dashboard</strong></div>
+        <div class="top-actions">
+          <label class="search-wrap"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search anything..." /></label>
+          <button class="icon-button" title="Notifications">♧<i></i></button>
+          <div class="top-avatar">C</div>
+        </div>
+      </header>
+
+      <div class="content" id="pageContent" tabindex="-1"></div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

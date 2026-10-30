@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stechgrow OS – Reusable UI Components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 1. ORIGINAL Stechgrow OS CSS (unchanged) ===== */
+/* Stechgrow OS shared design system
+   Based on the supplied CSS and Figma overview screenshot.
+   Fine measurements and chart values are approximations where the overview
+   did not expose readable detail. */
+:root {
+  --bg-app:#141414; --bg-sidebar:#191919; --bg-card:#202020; --bg-card-raised:#292929;
+  --border:#343434; --text-primary:#f2f2f2; --text-secondary:#a3a3a3; --text-muted:#707070;
+  --purple:#7657ff; --pink:#ff3d8b; --orange:#ff8a1f; --yellow:#f5c518;
+  --blue:#326cff; --green:#22c55e; --red:#ef4444;
+  --gradient-brand:linear-gradient(135deg,#ff7a18 0%,#ff3d8b 50%,#7657ff 100%);
+  --gradient-upload:linear-gradient(145deg,#ff8a1f 0%,#ff3d8b 54%,#563cff 100%);
+  --font-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-xs:10px; --fs-sm:12px; --fs-md:14px; --fs-lg:18px; --fs-xl:24px; --fs-2xl:32px;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px; --sidebar-w:228px; --topbar-h:66px;
+}
+*{box-sizing:border-box} html,body{min-height:100%;margin:0}
+body{background:var(--bg-app);color:var(--text-primary);font:var(--fs-md)/1.5 var(--font-sans);-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit} button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none} button{cursor:pointer}
+.app-shell{min-height:100vh;display:grid;grid-template-columns:var(--sidebar-w) 1fr}
+.sidebar{position:fixed;inset:0 auto 0 0;width:var(--sidebar-w);background:var(--bg-sidebar);border-right:1px solid var(--border);padding:23px 15px;display:flex;flex-direction:column;z-index:20}
+.brand{display:flex;align-items:center;gap:10px;padding:0 9px 31px;font-weight:700;font-size:17px;letter-spacing:-.5px}
+.brand-mark{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--gradient-brand);font-weight:800;color:white}
+.brand-name span{color:#9b83ff;margin-left:3px;font-size:12px;letter-spacing:1px}
+.workspace-label{font-size:9px;letter-spacing:1.5px;color:#666;font-weight:700;padding:0 11px 10px}
+.nav-list{display:grid;gap:5px}
+.nav-item{height:40px;padding:0 11px;display:flex;align-items:center;gap:12px;border-radius:7px;color:#999;font-size:12px;transition:.15s}
+.nav-item:hover{background:#252525;color:#fff}
+.nav-item.active{background:#2b263d;color:#fff;box-shadow:inset 2px 0 #8b6bff}
+.nav-icon{width:17px;text-align:center;font-size:16px;color:#8f78ff}
+.sidebar-bottom{margin-top:auto}
+.profile{margin-top:17px;border-top:1px solid #303030;padding:17px 5px 0;display:flex;align-items:center;gap:9px}
+.avatar,.top-avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--gradient-brand);font-weight:700;font-size:12px}
+.profile-copy{display:grid;min-width:0}.profile-copy strong{font-size:10px}.profile-copy small{font-size:9px;color:#777}.more{margin-left:auto;color:#777}
+.main-area{grid-column:2;min-width:0}
+.topbar{height:var(--topbar-h);position:sticky;top:0;z-index:10;background:#181818eF;backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 29px}
+.breadcrumbs{display:flex;gap:10px;align-items:center;color:#777;font-size:11px}.breadcrumbs b{color:#444}.breadcrumbs strong{color:#eee;font-weight:600}
+.top-actions{display:flex;align-items:center;gap:17px}.search-wrap{width:220px;height:33px;border:1px solid #343434;background:#202020;border-radius:7px;display:flex;align-items:center;padding:0 10px;gap:8px;color:#777}.search-wrap input{width:100%;background:none;border:0;outline:0;color:#eee;font-size:10px}.search-wrap input::placeholder{color:#696969}
+.icon-button{position:relative;border:0;background:transparent;color:#aaa;font-size:18px}.icon-button i{position:absolute;width:5px;height:5px;background:var(--pink);border-radius:50%;right:0;top:2px}.top-avatar{width:28px;height:28px}
+.content{max-width:1600px;margin:auto;padding:29px 30px 45px}
+.page-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:23px}.eyebrow{color:#8c72ff;font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:5px}
+h1{font-size:21px;line-height:1.25;margin:0 0 6px;font-weight:600;letter-spacing:-.5px}h2{font-size:14px;margin:0 0 14px;font-weight:600}h3{font-size:12px;margin:0;font-weight:600}
+.subtitle{color:#858585;font-size:11px;margin:0}.heading-actions{display:flex;gap:9px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid transparent;border-radius:6px;padding:8px 13px;font-size:10px;font-weight:600;color:white;transition:.15s}
+.btn:hover{filter:brightness(1.13);transform:translateY(-1px)}.btn-primary{background:linear-gradient(110deg,#714cff,#4b69ff)}.btn-secondary{background:#292929;border-color:#3b3b3b;color:#ddd}.btn-gradient{background:var(--gradient-brand)}.btn-danger{background:#54252f;border-color:#783444;color:#ff9dbb}
+.card{background:linear-gradient(145deg,#222 0%,#1d1d1d 100%);border:1px solid #343434;border-radius:10px;padding:16px;min-width:0;box-shadow:0 8px 24px #00000012}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.card-title{font-size:11px;font-weight:600}.muted{color:#858585;font-size:10px}
+.grid{display:grid;gap:13px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kpi-card{position:relative;overflow:hidden}.kpi-label{font-size:10px;color:#888}.kpi-value{font-size:25px;font-weight:700;letter-spacing:-1px;margin:7px 0 3px}.kpi-foot{font-size:9px;color:#777}.positive{color:#32c978}.negative{color:#ff648b}.kpi-spark{position:absolute;right:13px;bottom:15px;color:#8a6bff;font-size:20px;opacity:.8}
+.tag{display:inline-flex;padding:3px 7px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:.2px}.tag-purple{background:#392d69;color:#bbaaff}.tag-pink{background:#54233c;color:#ff83b4}.tag-orange{background:#57351e;color:#ffb16b}.tag-green{background:#173d2b;color:#6be2a0}.tag-blue{background:#1d345e;color:#8eb5ff}.tag-gray{background:#333;color:#aaa}
+.table-wrap{overflow:auto;border:1px solid #303030;border-radius:7px}.data-table{width:100%;border-collapse:collapse;min-width:510px;font-size:10px}.data-table th{text-align:left;color:#777;font-weight:500;background:#1b1b1b;padding:10px 12px;border-bottom:1px solid #343434;white-space:nowrap}.data-table td{padding:11px 12px;border-bottom:1px solid #2c2c2c;color:#ccc}.data-table tr:last-child td{border-bottom:0}.data-table tbody tr:hover{background:#292929}
+.file-cell{display:flex;align-items:center;gap:9px}.file-icon{width:26px;height:29px;border-radius:5px;background:#2d2851;color:#a995ff;display:grid;place-items:center;font-size:12px}.file-cell strong{display:block;font-size:10px;color:#eee}.file-cell small{display:block;color:#777;font-size:8px}
+.progress{height:5px;background:#333;border-radius:10px;overflow:hidden}.progress span{height:100%;display:block;background:linear-gradient(90deg,#ff8a1f,#ff3d8b,#7657ff);border-radius:10px}
+.dropzone{border:1px dashed #51447c;background:linear-gradient(140deg,#29203966,#191919);border-radius:10px;padding:30px 18px;text-align:center;transition:.15s}.dropzone.dragover{border-color:#a78bfa;background:#30254b}.upload-symbol{width:39px;height:39px;margin:0 auto 10px;border-radius:11px;background:#32275b;color:#b7a3ff;display:grid;place-items:center;font-size:20px}.dropzone strong{display:block;font-size:12px}.dropzone p{font-size:9px;color:#858585;margin:5px 0 13px}.dropzone input{display:none}
+.filter-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:13px}.filter-chip{background:#242424;border:1px solid #383838;color:#999;border-radius:5px;padding:6px 9px;font-size:9px}.filter-chip.active{color:#d4caff;border-color:#6551a3;background:#30274c}
+.chart-area{height:190px;position:relative;padding:8px 5px 22px;display:flex;align-items:flex-end;gap:10px;border-bottom:1px solid #383838;background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,#ffffff08 46px)}
+.bar{flex:1;min-width:7px;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#9b72ff,#4b42b9);position:relative}.bar.pink{background:linear-gradient(180deg,#ff5a9d,#9b326b)}.bar.orange{background:linear-gradient(180deg,#ffad55,#a85b2a)}
+.chart-labels{display:flex;justify-content:space-between;color:#686868;font-size:8px;padding-top:7px}
+.legend{display:flex;gap:13px;flex-wrap:wrap;color:#888;font-size:9px}.legend span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:#8c6cff;margin-right:5px}.legend .pink-dot:before{background:#ff4b9b}.legend .green-dot:before{background:#24c878}
+.gauge-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gauge{text-align:center;padding:10px 3px}.gauge-ring{width:91px;height:48px;margin:0 auto 8px;border-radius:100px 100px 0 0;border:8px solid #343044;border-bottom:0;position:relative;overflow:hidden}.gauge-ring:before{content:"";position:absolute;inset:-8px;border-radius:100px 100px 0 0;border:8px solid transparent;border-top-color:#ff4c9b;border-left-color:#8b62ff;transform:rotate(-24deg)}.gauge strong{font-size:16px;display:block}.gauge small{font-size:8px;color:#888}
+.heatmap{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}.heatmap span{aspect-ratio:1;border-radius:2px;background:#3c3d9e}.heatmap span:nth-child(5n){background:#ff4b9b}.heatmap span:nth-child(4n){background:#8b5cff}.heatmap span:nth-child(7n){background:#f28b45}.heatmap span:nth-child(3n){background:#5542ba}
+.insight{border-left:2px solid #8665ff;padding:9px 11px;background:#28243a;border-radius:0 6px 6px 0;margin-bottom:9px}.insight strong{font-size:10px;display:block}.insight p{font-size:9px;color:#999;margin:4px 0 0}
+.report-card{display:flex;flex-direction:column;gap:12px}.report-preview{height:90px;border:1px solid #383838;border-radius:6px;background:linear-gradient(145deg,#292929,#171717);display:grid;place-items:center;color:#8b75e8;font-size:27px;position:relative;overflow:hidden}.report-preview:after{content:"";position:absolute;width:120px;height:70px;border:1px solid #8b75e822;transform:rotate(-25deg);right:-20px;bottom:-40px}
+.empty-note{padding:22px;text-align:center;color:#777;font-size:10px}
+.form-control{background:#191919;border:1px solid #393939;color:#ddd;border-radius:5px;padding:8px 10px;font-size:10px;outline:none}.form-control:focus{border-color:#8065ed}.mobile-menu{display:none;background:none;border:0;color:#ddd;font-size:18px}
+.toast{position:fixed;bottom:22px;right:22px;padding:11px 15px;border:1px solid #51447c;background:#28213c;color:#eee;border-radius:7px;font-size:11px;box-shadow:0 10px 30px #0008;opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:24px 20px}}
+@media(max-width:760px){.app-shell{display:block}.sidebar{transform:translateX(-100%);transition:transform .2s;width:245px}.sidebar.open{transform:translateX(0);box-shadow:20px 0 50px #0009}.main-area{margin:0}.topbar{padding:0 15px}.mobile-menu{display:block}.breadcrumbs{margin-right:auto;margin-left:12px}.search-wrap{width:150px}.content{padding:21px 14px}.grid-3,.grid-2{grid-template-columns:1fr}.page-heading{flex-direction:column}.heading-actions{width:100%}.gauge-row{gap:4px}}
+@media(max-width:460px){.search-wrap{width:34px;padding:0 8px}.search-wrap input{display:none}.top-actions{gap:10px}.grid-4{grid-template-columns:1fr}.gauge-ring{width:75px}.content{padding:17px 11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== 2. Small additions for the component library (same tokens, same look) ===== */
+.btn:disabled{opacity:.45;cursor:not-allowed;filter:none;transform:none}
+.btn-ghost{background:transparent;border-color:#3b3b3b;color:#bbb}
+.btn-sm{padding:5px 9px;font-size:9px}.btn-lg{padding:11px 18px;font-size:12px}.btn-block{display:flex;width:100%}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid #2c2c2c}
+.card p.body-text{font-size:11px;color:#a3a3a3;margin:0}
+.lib{max-width:1200px;margin:auto;padding:36px 28px 60px}
+.lib-section{margin-top:44px}
+.lib-section>h2{font-size:16px;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.lib-section>p{color:#858585;font-size:11px;margin:0 0 18px}
+.lib-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#666;margin:20px 0 10px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;background:#262626;border:1px solid #333;border-radius:4px;padding:1px 6px;color:#c9bcff}
+.text-right{text-align:right}
+@media(max-width:760px){.lib{padding:24px 14px 40px}}
+</style>
+</head>
+<body>
+<div class="lib">
+
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">STECHGROW OS / DESIGN SYSTEM</div>
+      <h1>Reusable UI Components</h1>
+      <p class="subtitle">Buttons, cards and data tables built with the Stechgrow OS stylesheet. Copy any block into your pages.</p>
+    </div>
+    <div class="heading-actions">
+      <button class="btn btn-secondary">Documentation</button>
+      <button class="btn btn-primary">Get started ↗</button>
+    </div>
+  </div>
+
+  <!-- ================= BUTTONS ================= -->
+  <section class="lib-section" id="buttons">
+    <h2>Buttons</h2>
+    <p>Base class <code>.btn</code> plus one variant class.</p>
+
+    <div class="lib-label">Variants</div>
+    <div class="row">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-gradient">Gradient</button>
+      <button class="btn btn-danger">Danger</button>
+      <button class="btn btn-ghost">Ghost</button>
+    </div>
+
+    <div class="lib-label">Sizes</div>
+    <div class="row">
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary">Default</button>
+      <button class="btn btn-primary btn-lg">Large</button>
+    </div>
+
+    <div class="lib-label">With icons</div>
+    <div class="row">
+      <button class="btn btn-primary">＋ Generate report</button>
+      <button class="btn btn-secondary">⇩ Download</button>
+      <button class="btn btn-secondary">↻ Refresh</button>
+      <button class="btn btn-danger">✕ Delete</button>
+    </div>
+
+    <div class="lib-label">States</div>
+    <div class="row">
+      <button class="btn btn-primary" disabled>Disabled</button>
+      <button class="btn btn-secondary" disabled>Disabled</button>
+    </div>
+
+    <div class="lib-label">Full width</div>
+    <button class="btn btn-gradient btn-block">Browse files</button>
+
+    <div class="lib-label">Filter chips</div>
+    <div class="filter-row">
+      <button class="filter-chip active">Overview</button>
+      <button class="filter-chip">Distributions</button>
+      <button class="filter-chip">Correlation</button>
+      <button class="filter-chip">Missing values</button>
+    </div>
+  </section>
+
+  <!-- ================= TAGS ================= -->
+  <section class="lib-section" id="tags">
+    <h2>Status tags</h2>
+    <p>Use <code>.tag</code> with a colour class for statuses and priorities.</p>
+    <div class="row">
+      <span class="tag tag-purple">PURPLE</span>
+      <span class="tag tag-pink">HIGH</span>
+      <span class="tag tag-orange">PROCESSING</span>
+      <span class="tag tag-green">COMPLETED</span>
+      <span class="tag tag-blue">LOW</span>
+      <span class="tag tag-gray">DRAFT</span>
+    </div>
+  </section>
+
+  <!-- ================= CARDS ================= -->
+  <section class="lib-section" id="cards">
+    <h2>Cards</h2>
+    <p>Base class <code>.card</code>, with optional header and footer.</p>
+
+    <div class="lib-label">Basic card</div>
+    <div class="grid grid-3">
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title">Basic card</div>
+          <span class="tag tag-purple">NEW</span>
+        </div>
+        <p class="body-text">A simple container with a title, a tag and body content. Use it for any grouped information.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title">Card with footer</div>
+          <span class="muted">Updated today</span>
+        </div>
+        <p class="body-text">Add a footer row for actions or meta information.</p>
+        <div class="card-foot">
+          <span class="tag tag-green">READY</span>
+          <button class="btn btn-secondary btn-sm">View</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title">Card with progress</div>
+          <span class="muted">68%</span>
+        </div>
+        <p class="body-text" style="margin-bottom:12px">Processing sales_q3.xlsx</p>
+        <div class="progress"><span style="width:68%"></span></div>
+      </section>
+    </div>
+
+    <div class="lib-label">KPI cards</div>
+    <div class="grid grid-4">
+      <section class="card kpi-card">
+        <div class="kpi-label">Total records</div>
+        <div class="kpi-value">2,420</div>
+        <div class="kpi-foot"><span class="positive">↗ +12.8% this month</span></div>
+        <div class="kpi-spark">⌁</div>
+      </section>
+      <section class="card kpi-card">
+        <div class="kpi-label">Processed files</div>
+        <div class="kpi-value">320</div>
+        <div class="kpi-foot"><span class="positive">↗ +8.4% this month</span></div>
+        <div class="kpi-spark">⌁</div>
+      </section>
+      <section class="card kpi-card">
+        <div class="kpi-label">Missing values</div>
+        <div class="kpi-value">2.8%</div>
+        <div class="kpi-foot"><span class="negative">↘ Across all columns</span></div>
+        <div class="kpi-spark">⌁</div>
+      </section>
+      <section class="card kpi-card">
+        <div class="kpi-label">Data quality</div>
+        <div class="kpi-value">98.2%</div>
+        <div class="kpi-foot"><span class="positive">↗ +2.1% this month</span></div>
+        <div class="kpi-spark">⌁</div>
+      </section>
+    </div>
+
+    <div class="lib-label">Report cards</div>
+    <div class="grid grid-3">
+      <section class="card report-card">
+        <div class="report-preview">▤</div>
+        <div><h3>Dataset overview</h3><p class="muted">PDF report · Updated 1 day ago</p></div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="tag tag-green">READY</span>
+          <button class="btn btn-secondary">⇩ Download</button>
+        </div>
+      </section>
+      <section class="card report-card">
+        <div class="report-preview">▤</div>
+        <div><h3>EDA summary</h3><p class="muted">PDF report · Updated 2 days ago</p></div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="tag tag-green">READY</span>
+          <button class="btn btn-secondary">⇩ Download</button>
+        </div>
+      </section>
+      <section class="card report-card">
+        <div class="report-preview">▤</div>
+        <div><h3>Data health report</h3><p class="muted">XLSX report · Updated 3 days ago</p></div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="tag tag-orange">DRAFT</span>
+          <button class="btn btn-secondary">⇩ Download</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="lib-label">Insight / alert cards</div>
+    <div class="grid grid-2">
+      <section class="card">
+        <div class="card-head"><div class="card-title">Recommended actions</div></div>
+        <div class="insight">
+          <strong>Review missing customer age values <span class="tag tag-pink">HIGH</span></strong>
+          <p>694 records have missing age values. Consider validating or imputing them.</p>
+          <button class="btn btn-secondary btn-sm" style="margin-top:8px">Review issue</button>
+        </div>
+        <div class="insight">
+          <strong>Standardize region labels <span class="tag tag-orange">MEDIUM</span></strong>
+          <p>Similar region names may be represented in different formats.</p>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-head"><div class="card-title">Recent activity</div></div>
+        <div class="insight"><strong>Dataset processed</strong><p>Customer analytics · 12 min ago</p></div>
+        <div class="insight"><strong>Report generated</strong><p>Monthly overview · 1 hour ago</p></div>
+        <div class="insight"><strong>Analysis completed</strong><p>Sales performance · 3 hours ago</p></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ================= DATA TABLES ================= -->
+  <section class="lib-section" id="tables">
+    <h2>Data tables</h2>
+    <p>Wrap <code>.data-table</code> inside <code>.table-wrap</code> so wide tables scroll on small screens.</p>
+
+    <div class="lib-label">Simple table</div>
+    <section class="card">
+      <div class="card-head"><div class="card-title">Dataset summary</div><span class="muted">5 features</span></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>FEATURE</th><th>TYPE</th><th>UNIQUE</th><th>MISSING</th></tr></thead>
+          <tbody>
+            <tr><td>Customer ID</td><td>Integer</td><td>24,820</td><td>0</td></tr>
+            <tr><td>Age</td><td>Numeric</td><td>68</td><td>12</td></tr>
+            <tr><td>Region</td><td>Category</td><td>8</td><td>0</td></tr>
+            <tr><td>Annual spend</td><td>Numeric</td><td>12,340</td><td>694</td></tr>
+            <tr><td>Segment</td><td>Category</td><td>4</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="lib-label">Table with file cells, status tags and progress</div>
+    <section class="card">
+      <div class="card-head"><div class="card-title">Uploaded files</div><button class="btn btn-secondary btn-sm">Clear list</button></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>FILE</th><th>SIZE</th><th>UPLOAD DATE</th><th>STATUS</th><th>PROGRESS</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="file-cell"><span class="file-icon">▤</span><span><strong>customer_data.csv</strong><small>Dataset · CSV</small></span></div></td>
+              <td>2.4 MB</td><td>25 Oct 2026</td>
+              <td><span class="tag tag-green">Completed</span></td>
+              <td><div class="progress" style="width:95px"><span style="width:100%"></span></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-cell"><span class="file-icon">▤</span><span><strong>sales_q3.xlsx</strong><small>Dataset · XLSX</small></span></div></td>
+              <td>1.1 MB</td><td>24 Oct 2026</td>
+              <td><span class="tag tag-orange">Processing</span></td>
+              <td><div class="progress" style="width:95px"><span style="width:68%"></span></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-cell"><span class="file-icon">▤</span><span><strong>market_analysis.csv</strong><small>Dataset · CSV</small></span></div></td>
+              <td>840 KB</td><td>22 Oct 2026</td>
+              <td><span class="tag tag-green">Completed</span></td>
+              <td><div class="progress" style="width:95px"><span style="width:100%"></span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="lib-label">Table with toolbar and action buttons</div>
+    <section class="card">
+      <div class="card-head">
+        <div class="card-title">Recent reports</div>
+        <input class="form-control" placeholder="Filter reports..." />
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>REPORT NAME</th><th>FORMAT</th><th>CREATED</th><th>OWNER</th><th>STATUS</th><th class="text-right">ACTION</th></tr></thead>
+          <tbody>
+            <tr><td>Dataset overview</td><td>PDF</td><td>25 Oct 2026</td><td>Caleb</td><td><span class="tag tag-green">Ready</span></td><td class="text-right"><button class="btn btn-secondary btn-sm">Download</button></td></tr>
+            <tr><td>EDA summary</td><td>PDF</td><td>24 Oct 2026</td><td>Caleb</td><td><span class="tag tag-green">Ready</span></td><td class="text-right"><button class="btn btn-secondary btn-sm">Download</button></td></tr>
+            <tr><td>Data health report</td><td>XLSX</td><td>22 Oct 2026</td><td>Team</td><td><span class="tag tag-orange">Draft</span></td><td class="text-right"><button class="btn btn-secondary btn-sm">Download</button></td></tr>
+            <tr><td>Duplicate audit</td><td>CSV</td><td>20 Oct 2026</td><td>Team</td><td><span class="tag tag-pink">Failed</span></td><td class="text-right"><button class="btn btn-danger btn-sm">Retry</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="lib-label">Priority table</div>
+    <section class="card">
+      <div class="card-head"><div class="card-title">Recent advisory activity</div></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>ACTIVITY</th><th>PRIORITY</th><th>STATUS</th></tr></thead>
+          <tbody>
+            <tr><td>Missing value review</td><td><span class="tag tag-pink">High</span></td><td><span class="tag tag-orange">Open</span></td></tr>
+            <tr><td>Region normalization</td><td><span class="tag tag-orange">Medium</span></td><td><span class="tag tag-green">Resolved</span></td></tr>
+            <tr><td>Duplicate check</td><td><span class="tag tag-blue">Low</span></td><td><span class="tag tag-orange">Open</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="lib-label">Empty state</div>
+    <section class="card">
+      <div class="card-head"><div class="card-title">Uploaded files</div></div>
+      <div class="empty-note">No uploaded files in this session.</div>
+    </section>
+  </section>
+
+</div>
+</body>
+</html>
