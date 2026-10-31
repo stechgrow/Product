@@ -27,6 +27,9 @@ app.add_middleware(
 # 1. Sven Tuscano's Core Module: Risk Detection, Business Health, Advisory & Reports
 from app.modules.risk_health_advisory.router import router as risk_health_router
 app.include_router(risk_health_router)
+# 2. Arun: AI Services
+from app.modules.ai_services.router import router as ai_services_router
+app.include_router(ai_services_router)
 
 # Mount Static Demo Harness
 DEMO_STATIC_DIR = Path(__file__).resolve().parent / "modules" / "risk_health_advisory" / "demo_harness" / "static"
