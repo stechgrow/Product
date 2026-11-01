@@ -1,0 +1,14 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Testing
+.pytest_cache/
+.coverage
