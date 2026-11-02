@@ -1,0 +1,801 @@
+Order ID,Date,Product,Category,Country,City,Segment,Quantity,Unit Price,Revenue,Profit,Discount,Customer Age
+ORD-1000,2023-01-01,Camera,Electronics,UK,Paris,Consumer,7,1231.9,26301.09,5419.59,0.08,60
+ORD-1001,2023-01-01,Laptop,Electronics,USA,London,Home Office,4,1598.86,41208.47,406.59,0.26,34
+ORD-1002,2023-01-01,Laptop,Electronics,France,Berlin,Corporate,8,258.06,21827.67,3632.25,0.33,49
+ORD-1003,2023-01-02,Camera,Electronics,France,Paris,Home Office,5,1708.92,44887.36,7438.94,0.02,21
+ORD-1004,2023-01-02,Tablet,Electronics,Australia,Paris,Home Office,7,1504.65,4028.37,1363.37,0.36,21
+ORD-1005,2023-01-03,Phone,Electronics,Australia,Berlin,Consumer,3,846.61,,3149.49,0.01,34
+ORD-1006,2023-01-03,Phone,Electronics,India,Mumbai,Home Office,7,1869.23,,5852.39,0.14,58
+ORD-1007,2023-01-03,Phone,Electronics,USA,Sydney,Home Office,8,1982.31,,7063.96,0.01,36
+ORD-1008,2023-01-04,Camera,Electronics,UK,Mumbai,Consumer,5,449.75,,5384.0,0.03,22
+ORD-1009,2023-01-04,Laptop,Electronics,India,Sydney,Home Office,4,789.5,,2102.48,0.36,49
+ORD-1010,2023-01-05,Camera,Electronics,,Sydney,Home Office,8,1856.58,10130.64,5413.13,0.14,39
+ORD-1011,2023-01-05,Camera,Electronics,,Paris,Consumer,8,1457.11,8733.41,2408.98,0.17,23
+ORD-1012,2023-01-06,Smartwatch,Electronics,,Sydney,Consumer,3,143.78,31058.91,5761.51,0.09,52
+ORD-1013,2023-01-06,Laptop,Electronics,,New York,Home Office,6,1573.95,26392.69,7634.56,0.24,39
+ORD-1014,2023-01-06,Smartwatch,Electronics,Australia,Berlin,Home Office,5,1664.48,33669.75,5785.08,0.24,18
+ORD-1015,2023-01-07,Headphones,Electronics,Germany,Berlin,Home Office,2,1513.48,46515.49,6909.9,0.15,37
+ORD-1016,2023-01-07,Laptop,Electronics,Germany,New York,Home Office,8,1609.1,26846.88,66.73,0.13,39
+ORD-1017,2023-01-08,Laptop,Electronics,Australia,Berlin,Corporate,6,1659.01,29256.14,5754.7,0.35,28
+ORD-1018,2023-01-08,Laptop,Electronics,USA,London,Home Office,2,413.49,4936.5,6645.22,0.15,30
+ORD-1019,2023-01-08,Phone,Electronics,India,Berlin,Consumer,5,509.6,36022.97,372.44,0.2,59
+ORD-1020,2023-01-09,Phone,Electronics,France,Berlin,Consumer,1,1285.83,-500.0,6979.2,0.11,20
+ORD-1021,2023-01-09,Smartwatch,Electronics,Australia,Berlin,Consumer,6,1820.34,-500.0,2090.72,0.31,26
+ORD-1022,2023-01-10,Smartwatch,Electronics,Australia,Sydney,Consumer,9,666.58,-500.0,5339.07,0.16,29
+ORD-1023,2023-01-10,Laptop,Electronics,USA,Mumbai,Home Office,1,1197.2,-500.0,6412.82,0.21,40
+ORD-1024,2023-01-11,Smartwatch,Electronics,India,London,Home Office,3,1381.82,-500.0,5318.18,0.1,31
+ORD-1025,2023-01-11,Phone,Electronics,Australia,Berlin,Corporate,7,931.3,-500.0,783.66,0.4,50
+ORD-1026,2023-01-11,Camera,Electronics,UK,London,Home Office,4,1441.88,40089.16,4790.76,0.12,35
+ORD-1027,2023-01-12,Camera,Electronics,Australia,Sydney,Consumer,9,1804.35,9636.96,4419.19,0.31,58
+ORD-1028,2023-01-12,Camera,Electronics,France,London,Home Office,3,1267.0,15116.28,7207.55,0.17,26
+ORD-1029,2023-01-13,Smartwatch,Electronics,India,London,Corporate,5,1102.57,39773.66,3263.71,0.08,40
+ORD-1000,2023-01-01,Camera,Electronics,UK,Paris,Consumer,7,1231.9,26301.09,5419.59,0.08,60
+ORD-1001,2023-01-01,Laptop,Electronics,USA,London,Home Office,4,1598.86,41208.47,406.59,0.26,34
+ORD-1002,2023-01-01,Laptop,Electronics,France,Berlin,Corporate,8,258.06,21827.67,3632.25,0.33,49
+ORD-1003,2023-01-02,Camera,Electronics,France,Paris,Home Office,5,1708.92,44887.36,7438.94,0.02,21
+ORD-1004,2023-01-02,Tablet,Electronics,Australia,Paris,Home Office,7,1504.65,4028.37,1363.37,0.36,21
+ORD-1005,2023-01-03,Phone,Electronics,Australia,Berlin,Consumer,3,846.61,,3149.49,0.01,34
+ORD-1036,2023-01-16,Phone,Electronics,UK,Mumbai,Corporate,4,496.6,26561.71,4809.6,0.31,47
+ORD-1037,2023-01-16,Camera,Electronics,India,Berlin,Home Office,9,1108.56,6059.07,4042.12,0.16,42
+ORD-1038,2023-01-16,Headphones,Electronics,France,Mumbai,Corporate,2,891.48,627.91,1154.03,0.35,45
+ORD-1039,2023-01-17,Tablet,Electronics,Australia,Sydney,Corporate,9,698.99,32080.27,970.11,0.26,51
+ORD-1040,2023-01-17,Tablet,Electronics,UK,Sydney,Consumer,5,1474.57,26001.17,1276.86,0.33,62
+ORD-1041,2023-01-18,Phone,Electronics,India,London,Home Office,2,1402.75,29880.16,1416.2,0.2,64
+ORD-1042,2023-01-18,Phone,Electronics,Germany,New York,Corporate,4,375.12,39790.32,5121.12,0.21,42
+ORD-1043,2023-01-18,Tablet,Electronics,Germany,Paris,Corporate,7,1763.33,32506.99,5940.8,0.06,27
+ORD-1044,2023-01-19,Laptop,Electronics,India,Mumbai,Corporate,8,1016.08,9151.29,4263.43,0.31,31
+ORD-1045,2023-01-19,Laptop,Electronics,Germany,Paris,Consumer,3,1495.85,18358.24,6640.69,0.17,59
+ORD-1046,2023-01-20,Headphones,Electronics,UK,Paris,Home Office,1,1167.64,45341.61,7930.54,0.2,63
+ORD-1047,2023-01-20,Laptop,Electronics,Australia,Paris,Consumer,4,1995.5,38612.26,6569.1,0.31,47
+ORD-1048,2023-01-21,Tablet,Electronics,Germany,London,Consumer,2,1517.19,28053.53,5574.31,0.24,58
+ORD-1049,2023-01-21,Tablet,Electronics,Australia,Sydney,Corporate,8,1428.61,13154.43,4283.32,0.08,42
+ORD-1050,2023-01-21,Smartwatch,Electronics,USA,Mumbai,Corporate,4,1568.22,15451.99,3618.38,0.24,31
+ORD-1051,2023-01-22,Tablet,Electronics,Germany,Berlin,Corporate,2,329.1,36731.92,720.92,0.16,52
+ORD-1052,2023-01-22,Laptop,Electronics,USA,London,Corporate,6,448.86,42633.13,3224.98,0.19,51
+ORD-1053,2023-01-23,Camera,Electronics,Australia,Sydney,Consumer,6,1442.42,33735.52,7285.57,0.01,27
+ORD-1054,2023-01-23,Headphones,Electronics,France,Berlin,Corporate,4,1013.26,40571.73,6473.78,0.08,52
+ORD-1055,2023-01-23,Smartwatch,Electronics,Australia,Sydney,Home Office,6,1521.54,38449.48,1767.61,0.11,28
+ORD-1056,2023-01-24,Laptop,Electronics,UK,Mumbai,Consumer,2,250.69,7910.35,3759.53,0.29,28
+ORD-1057,2023-01-24,Headphones,Electronics,France,London,Corporate,2,1096.14,21485.27,6542.95,0.0,38
+ORD-1058,2023-01-25,Laptop,Electronics,France,Paris,Home Office,4,788.7,8072.7,585.71,0.16,38
+ORD-1059,2023-01-25,Smartwatch,Electronics,Germany,London,Corporate,8,941.15,12144.16,3129.77,0.37,39
+ORD-1060,2023-01-26,Tablet,Electronics,Germany,London,Home Office,7,1227.72,43528.35,6822.14,0.04,62
+ORD-1061,2023-01-26,Camera,Electronics,Germany,Mumbai,Corporate,9,1029.46,23908.15,3260.99,0.21,24
+ORD-1062,2023-01-26,Smartwatch,Electronics,Australia,Paris,Corporate,8,1102.73,27000.23,667.04,0.31,34
+ORD-1063,2023-01-27,Tablet,Electronics,France,Paris,Consumer,5,998.4,9333.08,4363.15,0.38,19
+ORD-1064,2023-01-27,Smartwatch,Electronics,UK,New York,Corporate,2,847.46,15957.45,6900.85,0.3,29
+ORD-1065,2023-01-28,Phone,Electronics,UK,New York,Home Office,5,1555.17,11897.19,4742.77,0.29,59
+ORD-1066,2023-01-28,Camera,Electronics,USA,Sydney,Home Office,8,73.8,10706.22,1848.92,0.33,35
+ORD-1067,2023-01-28,Laptop,Electronics,India,Berlin,Consumer,9,1216.96,32079.06,3104.7,0.18,28
+ORD-1068,2023-01-29,Laptop,Electronics,UK,New York,Corporate,9,1152.74,13215.75,3628.48,0.32,33
+ORD-1069,2023-01-29,Camera,Electronics,Germany,Mumbai,Consumer,1,1446.55,31784.77,4655.17,0.0,35
+ORD-1070,2023-01-30,Phone,Electronics,USA,London,Corporate,9,1218.11,3393.5,6086.84,0.37,52
+ORD-1071,2023-01-30,Tablet,Electronics,Germany,Paris,Consumer,7,1662.26,7517.83,836.05,0.18,43
+ORD-1072,2023-01-31,Laptop,Electronics,France,London,Corporate,9,1920.2,14089.74,7122.73,0.22,33
+ORD-1073,2023-01-31,Phone,Electronics,France,Mumbai,Corporate,8,717.92,30053.82,147.86,0.1,23
+ORD-1074,2023-01-31,Laptop,Electronics,Australia,London,Consumer,1,493.33,33954.14,2991.92,0.3,61
+ORD-1075,2023-02-01,Headphones,Electronics,Germany,Paris,Consumer,8,876.01,22414.49,267.99,0.03,60
+ORD-1076,2023-02-01,Tablet,Electronics,UK,New York,Consumer,8,611.46,22566.65,3174.15,0.35,64
+ORD-1077,2023-02-02,Headphones,Electronics,India,Berlin,Consumer,3,1249.15,36363.58,4230.21,0.33,64
+ORD-1078,2023-02-02,Camera,Electronics,Germany,Paris,Corporate,1,1828.11,1283.14,4117.87,0.09,59
+ORD-1079,2023-02-02,Tablet,Electronics,UK,Paris,Corporate,8,321.28,17383.96,1366.75,0.32,29
+ORD-1080,2023-02-03,Phone,Electronics,USA,Paris,Home Office,3,246.55,41026.0,5183.64,0.31,30
+ORD-1081,2023-02-03,Tablet,Electronics,Germany,Sydney,Corporate,3,549.23,30359.36,405.99,0.25,21
+ORD-1082,2023-02-04,Tablet,Electronics,USA,Sydney,Consumer,1,1465.89,17192.74,6107.16,0.15,56
+ORD-1083,2023-02-04,Phone,Electronics,UK,Paris,Consumer,5,1206.28,45323.48,7575.82,0.11,19
+ORD-1084,2023-02-05,Camera,Electronics,UK,Mumbai,Corporate,7,249.31,38744.83,2751.16,0.09,43
+ORD-1085,2023-02-05,Tablet,Electronics,UK,Paris,Home Office,9,1841.56,13612.32,4162.05,0.13,44
+ORD-1086,2023-02-05,Camera,Electronics,UK,Sydney,Home Office,7,1590.67,32441.85,3062.34,0.36,44
+ORD-1087,2023-02-06,Camera,Electronics,France,Sydney,Corporate,9,94.89,29989.66,103.35,0.03,32
+ORD-1088,2023-02-06,Camera,Electronics,Australia,London,Consumer,8,1320.17,20358.8,3117.7,0.33,25
+ORD-1089,2023-02-07,Laptop,Electronics,UK,Mumbai,Consumer,2,1553.93,18664.33,6344.18,0.14,24
+ORD-1090,2023-02-07,Smartwatch,Electronics,France,New York,Corporate,1,780.15,17506.24,4788.11,0.21,64
+ORD-1091,2023-02-07,Camera,Electronics,India,London,Home Office,7,184.4,31049.21,855.02,0.32,63
+ORD-1092,2023-02-08,Phone,Electronics,France,Sydney,Corporate,7,200.78,22399.29,6784.76,0.35,57
+ORD-1093,2023-02-08,Smartwatch,Electronics,USA,London,Corporate,8,253.28,41677.22,4272.13,0.14,29
+ORD-1094,2023-02-09,Camera,Electronics,India,London,Corporate,5,1688.86,33645.33,6741.7,0.18,30
+ORD-1095,2023-02-09,Phone,Electronics,USA,London,Corporate,3,1825.84,3961.61,4662.76,0.17,60
+ORD-1096,2023-02-10,Phone,Electronics,Australia,Mumbai,Consumer,8,289.48,32188.33,4499.52,0.01,34
+ORD-1097,2023-02-10,Headphones,Electronics,Germany,New York,Consumer,6,510.02,13921.8,886.81,0.12,34
+ORD-1098,2023-02-10,Headphones,Electronics,Germany,New York,Corporate,3,372.76,29844.19,1380.51,0.18,53
+ORD-1099,2023-02-11,Tablet,Electronics,France,Paris,Home Office,1,413.33,34166.53,7777.6,0.16,38
+ORD-1100,2023-02-11,Camera,Electronics,USA,Sydney,Corporate,3,1683.11,11926.04,1866.47,0.29,25
+ORD-1101,2023-02-12,Camera,Electronics,Australia,Berlin,Consumer,5,697.69,23114.5,7820.74,0.15,22
+ORD-1102,2023-02-12,Smartwatch,Electronics,Germany,Mumbai,Consumer,3,657.32,9921.08,4278.71,0.2,43
+ORD-1103,2023-02-12,Phone,Electronics,Australia,New York,Home Office,1,493.42,3090.77,1129.52,0.17,33
+ORD-1104,2023-02-13,Camera,Electronics,Australia,Sydney,Corporate,5,1235.39,19234.58,839.45,0.3,53
+ORD-1105,2023-02-13,Tablet,Electronics,Germany,Sydney,Consumer,7,789.65,18465.74,1710.47,0.35,45
+ORD-1106,2023-02-14,Laptop,Electronics,Germany,Mumbai,Consumer,7,1501.29,49776.28,7408.82,0.21,46
+ORD-1107,2023-02-14,Phone,Electronics,India,Mumbai,Corporate,9,450.88,22594.44,3342.49,0.32,64
+ORD-1108,2023-02-15,Laptop,Electronics,India,Sydney,Corporate,3,1586.19,17011.69,3193.7,0.12,29
+ORD-1109,2023-02-15,Tablet,Electronics,UK,Paris,Home Office,7,1227.26,29233.51,2539.99,0.22,54
+ORD-1110,2023-02-15,Headphones,Electronics,USA,New York,Home Office,1,272.82,4893.99,1219.14,0.14,47
+ORD-1111,2023-02-16,Tablet,Electronics,Germany,Berlin,Home Office,4,858.28,48102.45,3928.42,0.17,40
+ORD-1112,2023-02-16,Laptop,Electronics,Australia,Berlin,Corporate,4,1733.86,31930.52,1083.88,0.29,33
+ORD-1113,2023-02-17,Phone,Electronics,USA,Berlin,Corporate,5,1849.77,37864.47,6692.07,0.35,31
+ORD-1114,2023-02-17,Smartwatch,Electronics,UK,London,Home Office,7,958.12,8938.66,2994.66,0.05,27
+ORD-1115,2023-02-17,Camera,Electronics,Australia,New York,Consumer,7,987.63,20769.15,3029.69,0.25,24
+ORD-1116,2023-02-18,Tablet,Electronics,France,London,Consumer,4,1840.99,21423.11,3818.35,0.23,62
+ORD-1117,2023-02-18,Phone,Electronics,UK,London,Corporate,7,1194.78,41179.42,3580.82,0.05,54
+ORD-1118,2023-02-19,Camera,Electronics,Germany,Sydney,Consumer,3,114.05,561.22,7959.12,0.08,46
+ORD-1119,2023-02-19,Headphones,Electronics,France,London,Corporate,6,1829.86,15392.23,4385.78,0.12,20
+ORD-1120,2023-02-20,Headphones,Electronics,France,Paris,Home Office,2,534.04,49071.2,751.2,0.07,32
+ORD-1121,2023-02-20,Camera,Electronics,UK,Paris,Corporate,9,1176.38,24006.88,4874.67,0.1,53
+ORD-1122,2023-02-20,Headphones,Electronics,Germany,Mumbai,Corporate,5,372.75,19435.05,1255.1,0.11,64
+ORD-1123,2023-02-21,Phone,Electronics,Australia,Mumbai,Corporate,6,116.06,6431.54,295.95,0.13,63
+ORD-1124,2023-02-21,Tablet,Electronics,France,New York,Consumer,4,657.37,48721.15,7767.4,0.3,36
+ORD-1125,2023-02-22,Phone,Electronics,UK,New York,Corporate,7,1571.97,1491.3,6199.63,0.23,30
+ORD-1126,2023-02-22,Phone,Electronics,UK,Paris,Consumer,9,591.29,36990.42,7841.87,0.39,59
+ORD-1127,2023-02-22,Camera,Electronics,Australia,Mumbai,Home Office,7,479.19,38545.69,3849.13,0.17,38
+ORD-1128,2023-02-23,Smartwatch,Electronics,Germany,Sydney,Home Office,1,464.73,12561.01,4281.45,0.3,54
+ORD-1129,2023-02-23,Smartwatch,Electronics,UK,Mumbai,Consumer,1,1054.59,33742.14,1388.28,0.35,44
+ORD-1130,2023-02-24,Tablet,Electronics,UK,London,Corporate,9,1952.31,5099.99,2012.91,0.27,46
+ORD-1131,2023-02-24,Camera,Electronics,UK,Berlin,Home Office,9,945.03,13223.84,6716.47,0.16,37
+ORD-1132,2023-02-25,Smartwatch,Electronics,USA,Sydney,Corporate,4,1136.75,39501.15,2881.68,0.3,42
+ORD-1133,2023-02-25,Headphones,Electronics,India,Berlin,Consumer,9,1728.23,43301.97,6623.18,0.08,23
+ORD-1134,2023-02-25,Smartwatch,Electronics,Australia,Berlin,Corporate,3,1093.39,30620.08,5686.66,0.13,53
+ORD-1135,2023-02-26,Headphones,Electronics,USA,Paris,Home Office,7,409.7,25588.5,1458.51,0.22,19
+ORD-1136,2023-02-26,Tablet,Electronics,UK,Berlin,Corporate,6,634.21,8385.55,4084.2,0.23,39
+ORD-1137,2023-02-27,Phone,Electronics,India,Berlin,Home Office,8,654.38,3623.9,5435.23,0.01,49
+ORD-1138,2023-02-27,Phone,Electronics,Australia,London,Corporate,9,824.77,6323.63,1918.55,0.38,33
+ORD-1139,2023-02-27,Smartwatch,Electronics,France,New York,Home Office,5,882.24,11754.19,6653.97,0.28,35
+ORD-1140,2023-02-28,Headphones,Electronics,Australia,Paris,Home Office,1,1609.57,17412.89,4381.38,0.2,22
+ORD-1141,2023-02-28,Laptop,Electronics,USA,Mumbai,Home Office,3,731.3,19355.02,1363.67,0.37,53
+ORD-1142,2023-03-01,Laptop,Electronics,USA,London,Consumer,8,963.05,17642.93,4684.73,0.18,47
+ORD-1143,2023-03-01,Laptop,Electronics,USA,Berlin,Consumer,6,1268.7,12333.24,7997.72,0.39,62
+ORD-1144,2023-03-02,Phone,Electronics,Australia,Mumbai,Consumer,8,786.57,25731.35,1246.65,0.2,36
+ORD-1145,2023-03-02,Camera,Electronics,Germany,London,Corporate,9,1681.3,41351.66,6543.22,0.05,40
+ORD-1146,2023-03-02,Phone,Electronics,UK,Sydney,Corporate,4,1195.53,14345.33,1698.11,0.31,51
+ORD-1147,2023-03-03,Camera,Electronics,Australia,Sydney,Corporate,1,623.39,47148.16,6269.99,0.27,30
+ORD-1148,2023-03-03,Headphones,Electronics,France,Paris,Home Office,1,1442.42,43730.16,5889.89,0.31,60
+ORD-1149,2023-03-04,Smartwatch,Electronics,France,Berlin,Corporate,4,1078.91,8507.33,2438.89,0.38,46
+ORD-1150,2023-03-04,Laptop,Electronics,France,Paris,Consumer,7,1092.19,39420.66,2640.29,0.31,53
+ORD-1151,2023-03-04,Headphones,Electronics,UK,Sydney,Consumer,2,988.12,28942.08,6350.55,0.24,39
+ORD-1152,2023-03-05,Headphones,Electronics,India,London,Home Office,3,1019.17,28545.48,3718.49,0.34,64
+ORD-1153,2023-03-05,Smartwatch,Electronics,USA,Mumbai,Home Office,1,1542.44,19856.62,5860.0,0.27,53
+ORD-1154,2023-03-06,Headphones,Electronics,UK,New York,Corporate,5,250.81,25307.07,1226.47,0.16,26
+ORD-1155,2023-03-06,Smartwatch,Electronics,USA,Berlin,Home Office,1,702.01,20160.35,6827.83,0.35,56
+ORD-1156,2023-03-07,Tablet,Electronics,UK,Paris,Consumer,8,197.23,27216.76,5701.53,0.09,36
+ORD-1157,2023-03-07,Smartwatch,Electronics,USA,Mumbai,Consumer,1,1518.83,31583.53,7260.2,0.29,55
+ORD-1158,2023-03-07,Laptop,Electronics,UK,Mumbai,Consumer,1,580.99,33878.04,1102.36,0.35,23
+ORD-1159,2023-03-08,Camera,Electronics,India,New York,Consumer,2,1799.99,26857.82,4764.47,0.29,64
+ORD-1160,2023-03-08,Camera,Electronics,Australia,London,Home Office,2,1076.83,36210.39,4813.01,0.28,32
+ORD-1161,2023-03-09,Laptop,Electronics,France,New York,Corporate,6,1611.46,7493.26,2860.01,0.3,37
+ORD-1162,2023-03-09,Camera,Electronics,USA,New York,Corporate,7,1958.92,10993.13,3694.81,0.19,26
+ORD-1163,2023-03-09,Smartwatch,Electronics,UK,London,Home Office,5,1687.59,41027.38,351.95,0.35,49
+ORD-1164,2023-03-10,Tablet,Electronics,India,London,Corporate,1,1740.64,16465.13,5979.59,0.08,21
+ORD-1165,2023-03-10,Camera,Electronics,India,London,Consumer,1,845.57,1633.24,4417.11,0.05,35
+ORD-1166,2023-03-11,Tablet,Electronics,France,Mumbai,Home Office,3,1125.86,8112.66,509.04,0.11,22
+ORD-1167,2023-03-11,Laptop,Electronics,UK,Mumbai,Home Office,2,545.08,11568.91,5462.01,0.21,37
+ORD-1168,2023-03-12,Tablet,Electronics,Australia,Berlin,Consumer,5,432.42,47887.48,3760.92,0.2,40
+ORD-1169,2023-03-12,Headphones,Electronics,USA,Sydney,Corporate,6,1035.74,28865.55,323.97,0.33,28
+ORD-1170,2023-03-12,Phone,Electronics,Australia,Berlin,Home Office,7,1210.35,46670.17,7758.38,0.16,54
+ORD-1171,2023-03-13,Headphones,Electronics,Germany,New York,Corporate,4,711.58,28970.59,7595.44,0.19,39
+ORD-1172,2023-03-13,Laptop,Electronics,India,New York,Consumer,7,1160.41,24228.04,4127.57,0.01,21
+ORD-1173,2023-03-14,Camera,Electronics,India,Berlin,Corporate,8,1780.55,16029.52,794.7,0.16,46
+ORD-1174,2023-03-14,Camera,Electronics,France,Paris,Home Office,1,1135.61,30515.36,6049.24,0.26,61
+ORD-1175,2023-03-14,Tablet,Electronics,UK,Sydney,Home Office,6,1455.59,7390.3,3960.85,0.01,51
+ORD-1176,2023-03-15,Smartwatch,Electronics,Germany,New York,Corporate,8,1620.36,44963.95,2454.46,0.11,30
+ORD-1177,2023-03-15,Phone,Electronics,Germany,Paris,Home Office,5,1978.02,41551.95,3956.77,0.08,59
+ORD-1178,2023-03-16,Smartwatch,Electronics,Germany,Paris,Corporate,4,1226.23,16217.81,4203.43,0.02,26
+ORD-1179,2023-03-16,Laptop,Electronics,UK,Sydney,Home Office,2,1623.36,47663.48,4523.56,0.19,59
+ORD-1180,2023-03-17,Camera,Electronics,USA,London,Home Office,6,1927.17,41347.44,3557.73,0.07,48
+ORD-1181,2023-03-17,Tablet,Electronics,India,Mumbai,Home Office,6,1891.6,33482.19,4865.75,0.3,24
+ORD-1182,2023-03-17,Camera,Electronics,UK,Berlin,Corporate,1,325.11,6527.21,7353.94,0.34,21
+ORD-1183,2023-03-18,Smartwatch,Electronics,Germany,Sydney,Home Office,9,842.47,24172.58,2930.03,0.22,36
+ORD-1184,2023-03-18,Smartwatch,Electronics,India,Mumbai,Home Office,6,681.78,25552.32,5819.45,0.39,59
+ORD-1185,2023-03-19,Phone,Electronics,India,Berlin,Corporate,3,219.5,12011.29,7160.9,0.18,47
+ORD-1186,2023-03-19,Phone,Electronics,Germany,Mumbai,Corporate,4,1284.82,4458.29,3675.04,0.21,48
+ORD-1187,2023-03-19,Tablet,Electronics,Germany,Berlin,Consumer,4,1485.01,38947.82,3575.47,0.4,52
+ORD-1188,2023-03-20,Phone,Electronics,India,Mumbai,Corporate,3,1703.85,6540.74,4836.83,0.09,38
+ORD-1189,2023-03-20,Smartwatch,Electronics,France,London,Corporate,3,289.41,29917.39,4751.68,0.38,48
+ORD-1190,2023-03-21,Smartwatch,Electronics,Australia,Paris,Home Office,3,1759.07,46854.23,6462.39,0.02,36
+ORD-1191,2023-03-21,Laptop,Electronics,Australia,Berlin,Consumer,4,1303.7,43867.21,3838.04,0.18,48
+ORD-1192,2023-03-22,Smartwatch,Electronics,India,Paris,Corporate,7,1422.69,14248.75,7969.18,0.03,49
+ORD-1193,2023-03-22,Tablet,Electronics,USA,Berlin,Home Office,4,1825.72,42646.71,522.8,0.29,19
+ORD-1194,2023-03-22,Headphones,Electronics,USA,Sydney,Corporate,9,1268.28,516.46,75.18,0.24,27
+ORD-1195,2023-03-23,Laptop,Electronics,France,Sydney,Home Office,1,704.94,1375.55,5139.58,0.28,19
+ORD-1196,2023-03-23,Laptop,Electronics,UK,Berlin,Home Office,8,1658.96,30326.38,2422.56,0.15,19
+ORD-1197,2023-03-24,Tablet,Electronics,India,London,Home Office,7,757.97,18557.51,1961.04,0.15,41
+ORD-1198,2023-03-24,Tablet,Electronics,USA,Mumbai,Consumer,2,116.74,19629.81,2529.6,0.02,34
+ORD-1199,2023-03-24,Phone,Electronics,India,Berlin,Home Office,8,1669.78,28439.83,2085.58,0.14,49
+ORD-1200,2023-03-25,Laptop,Electronics,France,Mumbai,Corporate,1,723.12,9993.23,294.78,0.37,33
+ORD-1201,2023-03-25,Phone,Electronics,Germany,London,Corporate,9,1558.98,10981.89,7773.69,0.15,33
+ORD-1202,2023-03-26,Smartwatch,Electronics,France,New York,Home Office,9,757.38,24487.78,1804.93,0.33,63
+ORD-1203,2023-03-26,Laptop,Electronics,France,Paris,Home Office,2,1729.08,37835.55,5885.54,0.34,56
+ORD-1204,2023-03-27,Laptop,Electronics,France,Berlin,Home Office,7,478.05,31165.14,6112.64,0.15,48
+ORD-1205,2023-03-27,Camera,Electronics,USA,Sydney,Consumer,3,1950.37,15219.07,7437.6,0.25,60
+ORD-1206,2023-03-27,Headphones,Electronics,France,London,Home Office,7,1570.53,21801.69,292.87,0.04,41
+ORD-1207,2023-03-28,Laptop,Electronics,Germany,Mumbai,Consumer,9,272.76,8947.91,6982.78,0.04,18
+ORD-1208,2023-03-28,Smartwatch,Electronics,Germany,Berlin,Home Office,4,1153.26,4194.18,4241.45,0.02,28
+ORD-1209,2023-03-29,Phone,Electronics,Germany,Mumbai,Corporate,1,1971.47,39243.45,5078.73,0.23,38
+ORD-1210,2023-03-29,Phone,Electronics,UK,New York,Consumer,2,968.58,13636.68,5173.54,0.17,21
+ORD-1211,2023-03-29,Camera,Electronics,France,Berlin,Home Office,1,405.11,9299.44,6567.39,0.22,24
+ORD-1212,2023-03-30,Headphones,Electronics,Germany,Paris,Home Office,5,995.32,34735.09,2700.59,0.21,43
+ORD-1213,2023-03-30,Smartwatch,Electronics,UK,Berlin,Home Office,5,1049.29,31093.56,5877.76,0.14,64
+ORD-1214,2023-03-31,Phone,Electronics,France,Paris,Home Office,7,1496.29,31842.89,4252.2,0.27,29
+ORD-1215,2023-03-31,Tablet,Electronics,France,Mumbai,Corporate,9,1412.75,11830.28,6357.48,0.3,48
+ORD-1216,2023-04-01,Smartwatch,Electronics,India,Berlin,Consumer,9,834.97,12015.95,7924.84,0.01,34
+ORD-1217,2023-04-01,Smartwatch,Electronics,France,London,Home Office,3,475.15,11429.73,1645.18,0.08,50
+ORD-1218,2023-04-01,Headphones,Electronics,Australia,Sydney,Consumer,3,1307.86,9100.75,7957.46,0.29,28
+ORD-1219,2023-04-02,Phone,Electronics,India,London,Consumer,3,872.32,32958.32,764.01,0.15,45
+ORD-1220,2023-04-02,Smartwatch,Electronics,USA,New York,Home Office,4,307.94,42476.79,68.42,0.26,49
+ORD-1221,2023-04-03,Camera,Electronics,Australia,London,Home Office,8,1806.12,36353.71,401.09,0.14,18
+ORD-1222,2023-04-03,Camera,Electronics,USA,New York,Consumer,6,1397.88,39708.63,2767.17,0.16,64
+ORD-1223,2023-04-03,Phone,Electronics,UK,Mumbai,Consumer,8,1382.21,20537.52,5081.61,0.06,45
+ORD-1224,2023-04-04,Camera,Electronics,Australia,Paris,Consumer,1,1654.04,32876.75,598.78,0.1,59
+ORD-1225,2023-04-04,Tablet,Electronics,India,Sydney,Corporate,8,1082.84,18034.69,95.04,0.24,24
+ORD-1226,2023-04-05,Headphones,Electronics,USA,Mumbai,Corporate,4,1639.36,26512.48,7499.87,0.17,19
+ORD-1227,2023-04-05,Camera,Electronics,USA,Paris,Corporate,1,1021.28,24340.92,6584.32,0.31,59
+ORD-1228,2023-04-06,Camera,Electronics,USA,Paris,Consumer,8,180.99,9255.91,6483.01,0.34,41
+ORD-1229,2023-04-06,Tablet,Electronics,France,New York,Corporate,4,840.23,19660.4,7081.17,0.22,21
+ORD-1230,2023-04-06,Headphones,Electronics,India,London,Home Office,6,1020.06,48209.2,5615.27,0.3,61
+ORD-1231,2023-04-07,Smartwatch,Electronics,USA,London,Consumer,8,1454.4,12804.72,880.01,0.12,36
+ORD-1232,2023-04-07,Headphones,Electronics,India,Sydney,Corporate,4,257.83,7123.28,3222.85,0.17,43
+ORD-1233,2023-04-08,Laptop,Electronics,Germany,Sydney,Home Office,3,323.04,21219.74,5799.04,0.29,28
+ORD-1234,2023-04-08,Phone,Electronics,Germany,New York,Home Office,9,564.18,39621.72,2278.66,0.15,57
+ORD-1235,2023-04-08,Phone,Electronics,Australia,New York,Corporate,3,569.67,29316.34,5514.88,0.24,60
+ORD-1236,2023-04-09,Laptop,Electronics,France,Mumbai,Home Office,9,1477.76,34208.25,244.76,0.07,28
+ORD-1237,2023-04-09,Tablet,Electronics,Germany,New York,Home Office,2,538.92,9889.89,2483.79,0.24,62
+ORD-1238,2023-04-10,Laptop,Electronics,UK,London,Consumer,2,1284.54,31137.94,4415.59,0.34,20
+ORD-1239,2023-04-10,Smartwatch,Electronics,India,New York,Home Office,2,1013.83,16513.27,5075.11,0.35,29
+ORD-1240,2023-04-11,Smartwatch,Electronics,USA,New York,Consumer,6,1167.92,41798.02,4637.47,0.29,20
+ORD-1241,2023-04-11,Phone,Electronics,UK,Paris,Home Office,3,1684.31,31650.29,5597.16,0.3,59
+ORD-1242,2023-04-11,Smartwatch,Electronics,Australia,New York,Consumer,9,838.54,10343.39,98.41,0.22,44
+ORD-1243,2023-04-12,Phone,Electronics,UK,Sydney,Home Office,4,1553.28,3698.53,852.48,0.23,19
+ORD-1244,2023-04-12,Laptop,Electronics,Australia,Mumbai,Corporate,1,872.97,2610.34,6958.11,0.05,33
+ORD-1245,2023-04-13,Laptop,Electronics,Germany,New York,Home Office,4,740.05,18884.72,5469.9,0.18,19
+ORD-1246,2023-04-13,Camera,Electronics,India,Sydney,Corporate,1,1919.32,13659.63,947.81,0.18,47
+ORD-1247,2023-04-13,Camera,Electronics,Australia,Berlin,Home Office,5,409.52,32481.46,6744.49,0.38,37
+ORD-1248,2023-04-14,Laptop,Electronics,USA,Berlin,Corporate,4,226.16,25217.02,1975.74,0.17,55
+ORD-1249,2023-04-14,Phone,Electronics,UK,Paris,Corporate,8,1553.42,13667.95,3852.17,0.22,45
+ORD-1250,2023-04-15,Laptop,Electronics,Australia,Paris,Consumer,8,183.09,7887.27,1204.31,0.21,42
+ORD-1251,2023-04-15,Laptop,Electronics,France,Berlin,Corporate,7,1682.3,6796.39,5695.37,0.25,49
+ORD-1252,2023-04-16,Tablet,Electronics,Australia,Sydney,Home Office,3,902.53,43300.69,5351.49,0.3,27
+ORD-1253,2023-04-16,Laptop,Electronics,USA,Paris,Corporate,1,1835.25,12552.16,1728.34,0.09,59
+ORD-1254,2023-04-16,Smartwatch,Electronics,Germany,Sydney,Home Office,1,1456.99,32759.68,6914.04,0.21,57
+ORD-1255,2023-04-17,Phone,Electronics,India,Sydney,Corporate,3,1240.29,40628.95,3240.38,0.33,50
+ORD-1256,2023-04-17,Tablet,Electronics,France,Paris,Home Office,6,1901.15,30897.02,2375.49,0.19,30
+ORD-1257,2023-04-18,Camera,Electronics,USA,London,Home Office,7,823.47,43048.48,1261.02,0.11,58
+ORD-1258,2023-04-18,Headphones,Electronics,Australia,Sydney,Home Office,6,1910.47,19923.49,2166.04,0.26,59
+ORD-1259,2023-04-18,Phone,Electronics,USA,London,Home Office,6,313.25,47833.0,225.11,0.33,64
+ORD-1260,2023-04-19,Smartwatch,Electronics,UK,New York,Home Office,6,993.32,7090.68,4686.9,0.03,54
+ORD-1261,2023-04-19,Phone,Electronics,USA,Berlin,Corporate,3,576.33,5556.4,6745.73,0.31,33
+ORD-1262,2023-04-20,Camera,Electronics,India,Mumbai,Home Office,6,1102.69,33105.26,4414.39,0.33,62
+ORD-1263,2023-04-20,Smartwatch,Electronics,India,Berlin,Corporate,8,365.93,47170.14,1793.23,0.18,39
+ORD-1264,2023-04-21,Smartwatch,Electronics,USA,Berlin,Consumer,2,1690.98,40539.73,317.67,0.39,37
+ORD-1265,2023-04-21,Headphones,Electronics,UK,Sydney,Consumer,5,1700.5,4282.63,1756.29,0.31,60
+ORD-1266,2023-04-21,Phone,Electronics,France,London,Corporate,1,1912.71,14328.7,3358.17,0.31,44
+ORD-1267,2023-04-22,Headphones,Electronics,Australia,London,Home Office,1,351.61,46550.78,6088.91,0.3,58
+ORD-1268,2023-04-22,Headphones,Electronics,France,Paris,Corporate,5,1265.5,13026.39,1543.35,0.06,33
+ORD-1269,2023-04-23,Phone,Electronics,UK,Mumbai,Consumer,3,974.76,39167.94,5772.34,0.09,51
+ORD-1270,2023-04-23,Laptop,Electronics,Germany,London,Corporate,4,721.55,41344.04,6942.12,0.19,49
+ORD-1271,2023-04-23,Laptop,Electronics,India,Paris,Corporate,3,735.5,25024.88,3658.88,0.11,43
+ORD-1272,2023-04-24,Camera,Electronics,Germany,Mumbai,Home Office,1,854.95,19624.27,6580.38,0.17,42
+ORD-1273,2023-04-24,Headphones,Electronics,Australia,London,Consumer,1,1424.6,22781.16,4459.53,0.36,19
+ORD-1274,2023-04-25,Tablet,Electronics,UK,Berlin,Home Office,5,1216.66,11734.75,5114.87,0.33,29
+ORD-1275,2023-04-25,Headphones,Electronics,Australia,Berlin,Home Office,6,946.38,44524.85,4233.91,0.25,57
+ORD-1276,2023-04-26,Headphones,Electronics,Germany,Mumbai,Corporate,3,198.07,22805.67,3732.22,0.34,26
+ORD-1277,2023-04-26,Headphones,Electronics,UK,Mumbai,Corporate,9,201.64,44181.74,1915.49,0.31,29
+ORD-1278,2023-04-26,Camera,Electronics,France,London,Corporate,5,54.56,5731.83,2460.39,0.17,43
+ORD-1279,2023-04-27,Laptop,Electronics,France,London,Corporate,8,1937.01,49419.63,2355.26,0.08,26
+ORD-1280,2023-04-27,Camera,Electronics,Germany,Mumbai,Home Office,1,60.24,22442.02,4528.15,0.21,27
+ORD-1281,2023-04-28,Camera,Electronics,Germany,Sydney,Home Office,5,251.03,2867.63,1003.63,0.29,49
+ORD-1282,2023-04-28,Camera,Electronics,India,Mumbai,Corporate,3,663.46,2382.08,7338.49,0.17,51
+ORD-1283,2023-04-28,Laptop,Electronics,France,Paris,Corporate,1,1624.49,37437.26,5779.21,0.27,37
+ORD-1284,2023-04-29,Laptop,Electronics,India,Paris,Consumer,4,1926.09,33122.26,3241.49,0.04,56
+ORD-1285,2023-04-29,Headphones,Electronics,Germany,Paris,Home Office,5,1590.53,40205.46,1311.06,0.3,19
+ORD-1286,2023-04-30,Camera,Electronics,Australia,Berlin,Home Office,7,1396.59,5715.69,7061.84,0.33,18
+ORD-1287,2023-04-30,Tablet,Electronics,UK,Berlin,Home Office,1,1066.54,2260.76,6599.04,0.28,53
+ORD-1288,2023-05-01,Laptop,Electronics,France,Paris,Corporate,3,219.08,25674.67,5787.69,0.39,41
+ORD-1289,2023-05-01,Phone,Electronics,UK,Paris,Corporate,2,1918.43,19685.96,2208.8,0.33,44
+ORD-1290,2023-05-01,Phone,Electronics,India,Sydney,Corporate,9,1528.87,23366.37,3249.45,0.36,19
+ORD-1291,2023-05-02,Phone,Electronics,India,Mumbai,Consumer,6,1295.95,49583.63,866.85,0.37,48
+ORD-1292,2023-05-02,Smartwatch,Electronics,USA,Berlin,Corporate,3,1530.12,48552.12,1552.86,0.32,31
+ORD-1293,2023-05-03,Headphones,Electronics,Australia,Paris,Consumer,8,1462.0,47144.61,6274.98,0.27,19
+ORD-1294,2023-05-03,Phone,Electronics,France,Sydney,Corporate,8,1292.6,39300.21,5734.56,0.0,46
+ORD-1295,2023-05-03,Headphones,Electronics,France,New York,Home Office,2,1962.12,18064.65,4768.21,0.19,32
+ORD-1296,2023-05-04,Phone,Electronics,India,London,Consumer,6,1811.56,20900.48,7171.03,0.23,29
+ORD-1297,2023-05-04,Tablet,Electronics,Australia,Paris,Corporate,7,1311.0,27705.99,4686.97,0.12,54
+ORD-1298,2023-05-05,Headphones,Electronics,UK,Berlin,Corporate,2,1401.69,41611.46,3762.4,0.13,45
+ORD-1299,2023-05-05,Phone,Electronics,France,Paris,Home Office,2,150.61,3901.29,2755.95,0.38,37
+ORD-1300,2023-05-06,Laptop,Electronics,India,New York,Corporate,1,1356.34,21502.7,7526.57,0.36,56
+ORD-1301,2023-05-06,Headphones,Electronics,USA,Mumbai,Home Office,8,136.12,4589.57,707.59,0.34,41
+ORD-1302,2023-05-06,Smartwatch,Electronics,Germany,Berlin,Corporate,1,1197.11,25975.55,7450.55,0.16,38
+ORD-1303,2023-05-07,Laptop,Electronics,France,Mumbai,Consumer,9,1998.74,44995.59,6622.38,0.01,27
+ORD-1304,2023-05-07,Laptop,Electronics,Australia,London,Consumer,6,1133.82,39233.0,1082.94,0.03,63
+ORD-1305,2023-05-08,Camera,Electronics,Germany,Sydney,Home Office,7,972.76,11778.2,4541.63,0.12,31
+ORD-1306,2023-05-08,Smartwatch,Electronics,UK,Mumbai,Corporate,7,660.07,48811.55,6939.06,0.01,54
+ORD-1307,2023-05-08,Laptop,Electronics,USA,Paris,Home Office,3,285.02,33533.84,4595.88,0.01,35
+ORD-1308,2023-05-09,Laptop,Electronics,France,Sydney,Home Office,2,1475.5,1016.17,7262.24,0.37,41
+ORD-1309,2023-05-09,Phone,Electronics,Germany,New York,Corporate,9,425.57,13142.97,7546.72,0.28,31
+ORD-1310,2023-05-10,Phone,Electronics,Australia,Mumbai,Consumer,8,274.8,13405.31,3407.96,0.12,51
+ORD-1311,2023-05-10,Headphones,Electronics,Germany,New York,Consumer,7,872.44,3928.09,3049.64,0.05,29
+ORD-1312,2023-05-11,Headphones,Electronics,India,Sydney,Home Office,9,1600.92,48011.41,7493.75,0.2,39
+ORD-1313,2023-05-11,Headphones,Electronics,Germany,Berlin,Home Office,4,1502.88,24173.64,5417.36,0.0,23
+ORD-1314,2023-05-11,Phone,Electronics,UK,Berlin,Home Office,4,157.02,44842.82,972.38,0.38,53
+ORD-1315,2023-05-12,Headphones,Electronics,Germany,Paris,Consumer,1,937.53,16449.67,386.22,0.17,62
+ORD-1316,2023-05-12,Laptop,Electronics,UK,Paris,Consumer,8,1068.75,6699.06,4538.8,0.16,53
+ORD-1317,2023-05-13,Phone,Electronics,UK,Paris,Consumer,3,1306.87,23979.64,7444.86,0.16,39
+ORD-1318,2023-05-13,Headphones,Electronics,Australia,New York,Home Office,7,1317.83,6140.85,6761.78,0.03,31
+ORD-1319,2023-05-13,Laptop,Electronics,India,London,Home Office,2,761.16,24557.77,5422.99,0.26,33
+ORD-1320,2023-05-14,Headphones,Electronics,USA,London,Consumer,2,1143.32,46054.71,1155.97,0.29,53
+ORD-1321,2023-05-14,Tablet,Electronics,UK,London,Home Office,7,988.07,26278.02,2071.14,0.27,42
+ORD-1322,2023-05-15,Headphones,Electronics,Germany,Berlin,Consumer,6,1775.75,31016.74,7010.31,0.06,49
+ORD-1323,2023-05-15,Tablet,Electronics,Australia,Berlin,Consumer,3,1084.02,8253.6,1503.32,0.23,50
+ORD-1324,2023-05-16,Headphones,Electronics,Germany,London,Consumer,9,910.01,2664.91,2263.59,0.23,62
+ORD-1325,2023-05-16,Camera,Electronics,UK,Sydney,Corporate,6,838.75,5984.99,1080.33,0.35,53
+ORD-1326,2023-05-16,Camera,Electronics,Australia,Paris,Corporate,6,1166.23,30127.31,5425.06,0.15,37
+ORD-1327,2023-05-17,Smartwatch,Electronics,Germany,Mumbai,Home Office,1,1617.76,5203.08,7554.66,0.15,35
+ORD-1328,2023-05-17,Camera,Electronics,France,Sydney,Corporate,4,1099.88,19111.65,2188.3,0.25,55
+ORD-1329,2023-05-18,Camera,Electronics,India,Sydney,Consumer,6,1340.23,27729.55,3829.48,0.25,20
+ORD-1330,2023-05-18,Headphones,Electronics,Germany,London,Home Office,6,1488.82,19738.31,5093.0,0.19,40
+ORD-1331,2023-05-18,Phone,Electronics,India,Mumbai,Consumer,5,1064.33,8602.35,7995.76,0.18,49
+ORD-1332,2023-05-19,Phone,Electronics,UK,London,Consumer,1,882.29,14052.67,883.22,0.2,62
+ORD-1333,2023-05-19,Tablet,Electronics,UK,Mumbai,Home Office,8,1759.5,46451.72,4013.64,0.34,33
+ORD-1334,2023-05-20,Phone,Electronics,UK,Paris,Consumer,5,864.14,33961.12,3111.7,0.18,22
+ORD-1335,2023-05-20,Laptop,Electronics,India,Sydney,Corporate,5,950.79,25054.37,6933.27,0.38,21
+ORD-1336,2023-05-21,Smartwatch,Electronics,Germany,Berlin,Home Office,7,1981.17,1129.39,3833.94,0.2,38
+ORD-1337,2023-05-21,Camera,Electronics,France,London,Corporate,4,50.46,49624.56,932.27,0.38,57
+ORD-1338,2023-05-21,Smartwatch,Electronics,India,London,Corporate,6,411.67,33737.02,5093.67,0.33,31
+ORD-1339,2023-05-22,Laptop,Electronics,Australia,Sydney,Home Office,4,798.73,16187.66,6177.71,0.14,56
+ORD-1340,2023-05-22,Camera,Electronics,France,Sydney,Consumer,3,1868.55,44023.8,72.91,0.35,48
+ORD-1341,2023-05-23,Tablet,Electronics,Germany,Paris,Corporate,7,186.56,13292.37,6878.71,0.04,31
+ORD-1342,2023-05-23,Laptop,Electronics,Germany,New York,Corporate,8,68.5,27428.82,1528.88,0.37,23
+ORD-1343,2023-05-23,Laptop,Electronics,India,London,Corporate,4,152.73,31985.5,4438.95,0.25,29
+ORD-1344,2023-05-24,Smartwatch,Electronics,USA,Mumbai,Home Office,2,222.66,11442.64,3355.59,0.02,33
+ORD-1345,2023-05-24,Headphones,Electronics,France,Paris,Consumer,3,123.31,48930.67,5771.25,0.26,34
+ORD-1346,2023-05-25,Smartwatch,Electronics,UK,Sydney,Consumer,1,985.57,37535.5,3000.73,0.39,62
+ORD-1347,2023-05-25,Smartwatch,Electronics,France,New York,Home Office,8,1182.48,28111.75,6964.62,0.03,40
+ORD-1348,2023-05-26,Phone,Electronics,Germany,London,Home Office,3,579.79,9439.43,5857.45,0.22,31
+ORD-1349,2023-05-26,Laptop,Electronics,Australia,London,Consumer,7,826.66,3165.98,5199.32,0.3,24
+ORD-1350,2023-05-26,Smartwatch,Electronics,Germany,Sydney,Home Office,5,228.81,16342.96,6380.11,0.32,63
+ORD-1351,2023-05-27,Laptop,Electronics,India,Sydney,Home Office,5,705.92,37782.77,6044.48,0.17,49
+ORD-1352,2023-05-27,Phone,Electronics,USA,Sydney,Home Office,7,1068.91,13831.9,335.71,0.08,32
+ORD-1353,2023-05-28,Laptop,Electronics,UK,Berlin,Consumer,9,1477.93,27208.03,3188.14,0.02,61
+ORD-1354,2023-05-28,Smartwatch,Electronics,France,New York,Consumer,5,56.53,36533.39,7449.92,0.23,34
+ORD-1355,2023-05-28,Laptop,Electronics,USA,Paris,Corporate,1,961.26,5843.21,1049.51,0.18,58
+ORD-1356,2023-05-29,Camera,Electronics,UK,Sydney,Consumer,1,629.16,34422.25,5909.92,0.38,64
+ORD-1357,2023-05-29,Phone,Electronics,Germany,Mumbai,Consumer,2,1713.0,5047.61,7798.0,0.02,61
+ORD-1358,2023-05-30,Headphones,Electronics,Australia,London,Corporate,6,1445.33,48273.92,464.98,0.27,51
+ORD-1359,2023-05-30,Laptop,Electronics,Germany,Paris,Corporate,9,1198.76,24675.51,5473.44,0.01,22
+ORD-1360,2023-05-31,Smartwatch,Electronics,India,Berlin,Consumer,8,590.67,7958.47,3771.83,0.07,62
+ORD-1361,2023-05-31,Phone,Electronics,India,Sydney,Home Office,5,1825.16,17447.99,4654.44,0.18,44
+ORD-1362,2023-05-31,Smartwatch,Electronics,Australia,London,Corporate,1,137.95,20964.11,728.46,0.18,40
+ORD-1363,2023-06-01,Smartwatch,Electronics,France,New York,Consumer,7,263.46,38030.16,391.91,0.27,57
+ORD-1364,2023-06-01,Laptop,Electronics,USA,Sydney,Consumer,5,813.68,37299.48,5351.59,0.36,31
+ORD-1365,2023-06-02,Smartwatch,Electronics,Australia,Sydney,Corporate,6,292.65,30791.06,6595.31,0.26,32
+ORD-1366,2023-06-02,Laptop,Electronics,USA,Sydney,Home Office,7,1915.01,5743.57,6267.02,0.38,60
+ORD-1367,2023-06-02,Headphones,Electronics,UK,Sydney,Home Office,3,1606.08,8002.68,4373.26,0.35,50
+ORD-1368,2023-06-03,Camera,Electronics,France,Paris,Consumer,3,555.02,5140.97,843.94,0.23,48
+ORD-1369,2023-06-03,Smartwatch,Electronics,India,Mumbai,Corporate,5,1197.68,29070.05,5519.95,0.33,52
+ORD-1370,2023-06-04,Smartwatch,Electronics,France,Sydney,Corporate,6,1965.54,43918.35,1973.02,0.26,34
+ORD-1371,2023-06-04,Smartwatch,Electronics,Germany,Sydney,Corporate,9,1774.19,21973.13,7293.0,0.03,45
+ORD-1372,2023-06-05,Tablet,Electronics,India,Berlin,Home Office,5,1221.56,8461.98,6714.21,0.3,36
+ORD-1373,2023-06-05,Tablet,Electronics,USA,Paris,Home Office,1,1812.26,28123.1,5689.59,0.04,63
+ORD-1374,2023-06-05,Phone,Electronics,India,London,Home Office,4,1978.91,40681.73,7593.33,0.24,40
+ORD-1375,2023-06-06,Camera,Electronics,Germany,Mumbai,Corporate,5,1499.54,37214.75,299.8,0.28,49
+ORD-1376,2023-06-06,Camera,Electronics,India,London,Consumer,5,176.72,44131.81,5902.79,0.03,57
+ORD-1377,2023-06-07,Tablet,Electronics,Australia,London,Home Office,7,833.08,14256.15,2675.43,0.09,30
+ORD-1378,2023-06-07,Phone,Electronics,USA,New York,Corporate,4,1683.76,10100.72,7253.22,0.37,37
+ORD-1379,2023-06-07,Tablet,Electronics,Germany,New York,Corporate,1,499.61,44050.92,2170.07,0.25,52
+ORD-1380,2023-06-08,Headphones,Electronics,Australia,London,Consumer,5,1669.75,33049.24,5812.61,0.1,22
+ORD-1381,2023-06-08,Phone,Electronics,UK,Berlin,Consumer,7,284.66,15890.98,7027.29,0.28,26
+ORD-1382,2023-06-09,Camera,Electronics,France,New York,Corporate,6,141.54,37246.23,381.17,0.24,46
+ORD-1383,2023-06-09,Camera,Electronics,Australia,New York,Consumer,5,798.98,40848.36,3211.3,0.2,23
+ORD-1384,2023-06-10,Tablet,Electronics,UK,New York,Home Office,4,121.63,30941.42,6110.36,0.39,42
+ORD-1385,2023-06-10,Headphones,Electronics,Germany,New York,Corporate,2,1916.68,34550.26,3666.61,0.27,48
+ORD-1386,2023-06-10,Tablet,Electronics,Germany,Mumbai,Home Office,4,1661.1,19075.37,2174.66,0.15,39
+ORD-1387,2023-06-11,Laptop,Electronics,Germany,London,Corporate,3,1611.5,27165.44,1797.45,0.32,19
+ORD-1388,2023-06-11,Laptop,Electronics,USA,Mumbai,Home Office,1,1278.07,26445.88,1095.57,0.35,62
+ORD-1389,2023-06-12,Headphones,Electronics,Germany,Paris,Consumer,8,471.83,42478.37,6864.18,0.05,22
+ORD-1390,2023-06-12,Smartwatch,Electronics,France,Paris,Consumer,5,1060.61,42078.22,4624.08,0.08,44
+ORD-1391,2023-06-12,Smartwatch,Electronics,USA,Sydney,Home Office,4,1214.68,41717.68,657.26,0.09,42
+ORD-1392,2023-06-13,Laptop,Electronics,Germany,Paris,Corporate,8,1073.81,1046.06,3091.51,0.28,25
+ORD-1393,2023-06-13,Laptop,Electronics,USA,Mumbai,Corporate,7,557.46,37602.5,2973.48,0.24,18
+ORD-1394,2023-06-14,Smartwatch,Electronics,France,Sydney,Home Office,2,1054.73,38054.48,1494.83,0.25,37
+ORD-1395,2023-06-14,Phone,Electronics,France,London,Home Office,1,1007.81,34079.75,3512.29,0.38,61
+ORD-1396,2023-06-15,Smartwatch,Electronics,Australia,Paris,Consumer,4,1992.85,37935.1,2690.19,0.31,40
+ORD-1397,2023-06-15,Tablet,Electronics,USA,New York,Consumer,8,1800.0,42177.53,2767.34,0.05,49
+ORD-1398,2023-06-15,Phone,Electronics,India,Paris,Home Office,2,953.59,23780.79,5925.26,0.14,28
+ORD-1399,2023-06-16,Tablet,Electronics,UK,Berlin,Home Office,3,1264.73,25351.49,1824.94,0.17,56
+ORD-1400,2023-06-16,Laptop,Electronics,Germany,New York,Corporate,1,1508.35,6673.35,5152.79,0.16,64
+ORD-1401,2023-06-17,Phone,Electronics,UK,New York,Corporate,1,117.99,19576.11,4586.66,0.27,41
+ORD-1402,2023-06-17,Tablet,Electronics,France,New York,Home Office,3,1795.1,32346.58,4566.34,0.36,28
+ORD-1403,2023-06-17,Tablet,Electronics,UK,Sydney,Corporate,5,1727.25,39129.79,5320.91,0.12,46
+ORD-1404,2023-06-18,Phone,Electronics,India,Paris,Consumer,3,941.99,11251.85,4409.64,0.22,43
+ORD-1405,2023-06-18,Headphones,Electronics,UK,New York,Corporate,1,812.78,7322.23,7040.08,0.32,33
+ORD-1406,2023-06-19,Smartwatch,Electronics,Australia,Sydney,Home Office,1,582.27,33320.58,5420.86,0.17,52
+ORD-1407,2023-06-19,Camera,Electronics,UK,Berlin,Consumer,8,979.52,593.05,4398.36,0.07,37
+ORD-1408,2023-06-20,Tablet,Electronics,France,Mumbai,Consumer,2,136.53,9329.44,6646.62,0.19,63
+ORD-1409,2023-06-20,Smartwatch,Electronics,France,Berlin,Consumer,3,1711.78,1939.03,4868.87,0.02,20
+ORD-1410,2023-06-20,Camera,Electronics,Australia,London,Corporate,2,119.07,8760.81,2364.6,0.38,18
+ORD-1411,2023-06-21,Smartwatch,Electronics,Germany,Sydney,Corporate,3,691.65,9475.3,1696.4,0.03,64
+ORD-1412,2023-06-21,Laptop,Electronics,USA,Sydney,Consumer,7,1866.6,19689.84,1261.01,0.18,18
+ORD-1413,2023-06-22,Camera,Electronics,Germany,New York,Consumer,1,1483.66,20415.19,7200.67,0.21,34
+ORD-1414,2023-06-22,Smartwatch,Electronics,France,Berlin,Corporate,8,598.71,43775.99,5695.58,0.39,19
+ORD-1415,2023-06-22,Tablet,Electronics,Germany,Paris,Corporate,2,542.67,25750.43,7502.16,0.07,46
+ORD-1416,2023-06-23,Camera,Electronics,UK,London,Consumer,3,59.91,36308.54,4846.17,0.05,37
+ORD-1417,2023-06-23,Laptop,Electronics,UK,Sydney,Corporate,9,1406.64,5654.8,3813.54,0.0,23
+ORD-1418,2023-06-24,Phone,Electronics,France,Berlin,Corporate,7,145.13,11659.22,524.75,0.06,25
+ORD-1419,2023-06-24,Tablet,Electronics,France,New York,Corporate,4,1088.57,35295.7,5389.56,0.08,46
+ORD-1420,2023-06-25,Laptop,Electronics,Germany,Paris,Corporate,5,1926.14,3113.8,4678.56,0.25,50
+ORD-1421,2023-06-25,Laptop,Electronics,Germany,New York,Home Office,2,263.46,24586.58,7922.16,0.09,20
+ORD-1422,2023-06-25,Camera,Electronics,UK,London,Home Office,8,1794.24,30168.76,1951.31,0.01,52
+ORD-1423,2023-06-26,Smartwatch,Electronics,USA,Berlin,Home Office,4,1983.38,30306.21,4269.36,0.33,22
+ORD-1424,2023-06-26,Phone,Electronics,Australia,New York,Consumer,9,169.96,1635.17,5225.11,0.15,44
+ORD-1425,2023-06-27,Tablet,Electronics,USA,London,Corporate,5,1771.67,16444.35,5174.5,0.14,61
+ORD-1426,2023-06-27,Tablet,Electronics,France,Sydney,Home Office,9,1056.35,32006.29,4512.28,0.12,29
+ORD-1427,2023-06-27,Smartwatch,Electronics,Germany,Paris,Corporate,4,1817.7,7875.49,6226.58,0.39,37
+ORD-1428,2023-06-28,Phone,Electronics,USA,Berlin,Home Office,5,1164.07,34923.07,1679.6,0.07,62
+ORD-1429,2023-06-28,Camera,Electronics,Germany,Berlin,Consumer,9,1341.12,37423.3,5818.74,0.36,37
+ORD-1430,2023-06-29,Tablet,Electronics,India,London,Consumer,8,1110.37,49107.47,4976.89,0.31,26
+ORD-1431,2023-06-29,Phone,Electronics,UK,Berlin,Home Office,3,1735.76,10887.18,7173.8,0.03,56
+ORD-1432,2023-06-30,Camera,Electronics,Australia,Paris,Consumer,1,1481.12,41343.97,6785.2,0.39,21
+ORD-1433,2023-06-30,Camera,Electronics,Germany,Paris,Corporate,3,1066.46,26254.68,2555.42,0.11,36
+ORD-1434,2023-06-30,Tablet,Electronics,Australia,Berlin,Corporate,4,1742.91,18986.4,2246.09,0.04,55
+ORD-1435,2023-07-01,Smartwatch,Electronics,Germany,New York,Consumer,2,528.31,6557.65,7854.14,0.33,44
+ORD-1436,2023-07-01,Headphones,Electronics,Germany,New York,Corporate,1,356.81,36907.53,4241.76,0.28,62
+ORD-1437,2023-07-02,Tablet,Electronics,Australia,Paris,Home Office,7,362.78,12174.95,7256.05,0.25,60
+ORD-1438,2023-07-02,Laptop,Electronics,Australia,New York,Home Office,8,701.32,18885.39,1352.85,0.06,30
+ORD-1439,2023-07-02,Laptop,Electronics,USA,London,Home Office,7,515.45,3595.84,5160.41,0.19,30
+ORD-1440,2023-07-03,Camera,Electronics,Germany,Mumbai,Corporate,5,1863.68,40167.66,6488.39,0.31,39
+ORD-1441,2023-07-03,Headphones,Electronics,India,Sydney,Home Office,1,256.38,38446.13,7581.79,0.12,45
+ORD-1442,2023-07-04,Tablet,Electronics,USA,Berlin,Consumer,7,1413.03,36813.98,2731.85,0.12,64
+ORD-1443,2023-07-04,Laptop,Electronics,France,London,Home Office,7,418.98,15322.45,5813.6,0.0,62
+ORD-1444,2023-07-05,Laptop,Electronics,France,Paris,Corporate,9,1769.19,9087.26,4333.56,0.07,39
+ORD-1445,2023-07-05,Tablet,Electronics,UK,Mumbai,Corporate,3,1924.56,32058.89,532.0,0.35,60
+ORD-1446,2023-07-05,Phone,Electronics,India,Sydney,Home Office,9,957.67,25060.24,5535.5,0.18,36
+ORD-1447,2023-07-06,Camera,Electronics,Germany,Paris,Consumer,1,1764.19,9323.5,5536.27,0.39,25
+ORD-1448,2023-07-06,Tablet,Electronics,India,Mumbai,Consumer,1,60.03,34452.61,7448.32,0.16,25
+ORD-1449,2023-07-07,Phone,Electronics,France,London,Consumer,4,1648.9,49560.76,4003.63,0.29,59
+ORD-1450,2023-07-07,Camera,Electronics,Germany,Mumbai,Corporate,9,495.82,37487.37,1880.49,0.11,43
+ORD-1451,2023-07-07,Headphones,Electronics,India,New York,Consumer,6,1821.97,37129.33,404.28,0.15,43
+ORD-1452,2023-07-08,Smartwatch,Electronics,Australia,London,Corporate,3,52.18,47540.48,3354.36,0.08,40
+ORD-1453,2023-07-08,Camera,Electronics,USA,Berlin,Home Office,1,1134.55,10545.35,2450.24,0.14,60
+ORD-1454,2023-07-09,Headphones,Electronics,Germany,Paris,Home Office,4,1525.44,28494.72,6100.65,0.22,30
+ORD-1455,2023-07-09,Smartwatch,Electronics,Australia,New York,Corporate,9,554.44,48992.51,2866.43,0.4,45
+ORD-1456,2023-07-10,Laptop,Electronics,USA,Berlin,Corporate,3,426.61,8682.06,7595.12,0.27,26
+ORD-1457,2023-07-10,Laptop,Electronics,India,Mumbai,Home Office,9,213.99,35162.47,7700.37,0.08,37
+ORD-1458,2023-07-10,Laptop,Electronics,Germany,New York,Home Office,7,686.55,29497.6,4986.22,0.02,36
+ORD-1459,2023-07-11,Camera,Electronics,UK,Berlin,Corporate,4,1141.7,29530.72,7432.85,0.05,56
+ORD-1460,2023-07-11,Phone,Electronics,UK,London,Home Office,3,275.9,35034.7,6098.79,0.23,29
+ORD-1461,2023-07-12,Smartwatch,Electronics,France,Mumbai,Home Office,5,784.56,46516.04,4397.53,0.31,32
+ORD-1462,2023-07-12,Laptop,Electronics,Australia,Berlin,Consumer,5,67.69,39237.81,1483.45,0.38,48
+ORD-1463,2023-07-12,Tablet,Electronics,Germany,Mumbai,Consumer,3,1646.42,3278.74,3695.85,0.01,31
+ORD-1464,2023-07-13,Smartwatch,Electronics,Australia,Berlin,Home Office,9,300.48,42710.04,4508.95,0.21,28
+ORD-1465,2023-07-13,Smartwatch,Electronics,India,Paris,Home Office,4,602.52,11664.3,6918.49,0.19,43
+ORD-1466,2023-07-14,Phone,Electronics,UK,London,Consumer,5,85.93,19157.25,3876.6,0.26,59
+ORD-1467,2023-07-14,Headphones,Electronics,Australia,New York,Home Office,4,892.87,23355.77,7186.51,0.22,44
+ORD-1468,2023-07-15,Phone,Electronics,France,Berlin,Corporate,5,1688.24,24304.85,5411.07,0.27,28
+ORD-1469,2023-07-15,Laptop,Electronics,Germany,Mumbai,Home Office,7,814.69,22041.43,1139.14,0.26,55
+ORD-1470,2023-07-15,Tablet,Electronics,UK,London,Home Office,9,400.02,46898.99,7960.1,0.05,51
+ORD-1471,2023-07-16,Tablet,Electronics,Australia,New York,Corporate,7,1519.71,35447.94,4241.5,0.32,60
+ORD-1472,2023-07-16,Laptop,Electronics,Australia,Mumbai,Consumer,5,1588.17,31742.95,3165.27,0.05,36
+ORD-1473,2023-07-17,Tablet,Electronics,Germany,London,Home Office,7,388.82,2967.18,5289.95,0.28,23
+ORD-1474,2023-07-17,Phone,Electronics,France,Mumbai,Consumer,5,1553.17,45243.71,915.7,0.17,63
+ORD-1475,2023-07-17,Camera,Electronics,India,Sydney,Consumer,3,1897.23,45514.81,5110.48,0.21,55
+ORD-1476,2023-07-18,Phone,Electronics,France,Sydney,Home Office,7,374.44,39120.55,4010.98,0.36,59
+ORD-1477,2023-07-18,Camera,Electronics,India,London,Home Office,2,1553.42,847.95,3283.06,0.36,45
+ORD-1478,2023-07-19,Laptop,Electronics,USA,New York,Consumer,9,1431.72,3335.37,7626.51,0.33,18
+ORD-1479,2023-07-19,Tablet,Electronics,Australia,New York,Home Office,1,973.47,11648.57,4204.19,0.2,52
+ORD-1480,2023-07-20,Smartwatch,Electronics,Australia,Mumbai,Home Office,6,162.94,7001.8,1791.98,0.29,57
+ORD-1481,2023-07-20,Headphones,Electronics,UK,London,Consumer,7,195.65,20242.38,3698.76,0.21,25
+ORD-1482,2023-07-20,Smartwatch,Electronics,USA,Berlin,Consumer,8,1712.21,46169.84,7359.13,0.35,64
+ORD-1483,2023-07-21,Camera,Electronics,Australia,Sydney,Corporate,9,1980.79,23866.99,1449.96,0.16,24
+ORD-1484,2023-07-21,Phone,Electronics,India,New York,Home Office,2,1368.3,1163.43,1750.96,0.39,28
+ORD-1485,2023-07-22,Phone,Electronics,Germany,Sydney,Corporate,2,919.62,14495.91,153.59,0.37,56
+ORD-1486,2023-07-22,Phone,Electronics,India,Berlin,Consumer,5,1312.77,2707.45,162.81,0.3,21
+ORD-1487,2023-07-22,Phone,Electronics,Australia,Berlin,Home Office,5,1209.07,2296.24,6643.66,0.11,42
+ORD-1488,2023-07-23,Headphones,Electronics,Australia,Paris,Consumer,6,798.04,14148.13,5870.37,0.05,29
+ORD-1489,2023-07-23,Laptop,Electronics,India,Mumbai,Home Office,3,177.97,14142.81,2872.58,0.34,43
+ORD-1490,2023-07-24,Phone,Electronics,Germany,Mumbai,Home Office,8,1651.95,39462.77,5601.57,0.07,55
+ORD-1491,2023-07-24,Camera,Electronics,USA,Mumbai,Corporate,1,775.08,48754.32,3191.89,0.34,63
+ORD-1492,2023-07-25,Tablet,Electronics,Australia,London,Consumer,6,1646.63,18874.75,7625.53,0.2,29
+ORD-1493,2023-07-25,Headphones,Electronics,UK,New York,Home Office,4,542.39,21729.9,7738.07,0.16,60
+ORD-1494,2023-07-25,Camera,Electronics,India,New York,Corporate,1,52.01,42317.08,3172.71,0.36,54
+ORD-1495,2023-07-26,Camera,Electronics,India,Paris,Consumer,7,359.93,13772.88,6841.06,0.24,63
+ORD-1496,2023-07-26,Phone,Electronics,UK,Sydney,Corporate,9,963.65,8240.9,6196.06,0.23,41
+ORD-1497,2023-07-27,Tablet,Electronics,India,Paris,Consumer,4,1891.39,42727.94,2514.5,0.22,33
+ORD-1498,2023-07-27,Phone,Electronics,UK,Paris,Home Office,4,249.28,2801.78,1894.72,0.15,30
+ORD-1499,2023-07-27,Camera,Electronics,UK,Berlin,Corporate,6,1715.71,31175.12,3692.97,0.31,42
+ORD-1500,2023-07-28,Laptop,Electronics,UK,Mumbai,Corporate,3,1077.7,28318.65,6261.72,0.1,21
+ORD-1501,2023-07-28,Headphones,Electronics,Germany,London,Home Office,6,1660.55,17623.06,7683.33,0.38,28
+ORD-1502,2023-07-29,Laptop,Electronics,USA,New York,Consumer,7,631.83,16101.88,6120.45,0.36,49
+ORD-1503,2023-07-29,Headphones,Electronics,USA,London,Home Office,3,1687.9,38706.96,6848.9,0.13,24
+ORD-1504,2023-07-30,Phone,Electronics,France,Mumbai,Corporate,7,1557.0,4778.02,4844.36,0.29,63
+ORD-1505,2023-07-30,Phone,Electronics,Germany,Mumbai,Home Office,3,498.6,12220.82,6691.49,0.23,28
+ORD-1506,2023-07-30,Headphones,Electronics,France,New York,Corporate,2,306.1,36756.21,6286.15,0.14,45
+ORD-1507,2023-07-31,Tablet,Electronics,Australia,Berlin,Home Office,4,1742.71,27641.87,3047.04,0.4,58
+ORD-1508,2023-07-31,Tablet,Electronics,USA,Sydney,Consumer,8,1928.31,6835.42,4438.32,0.01,40
+ORD-1509,2023-08-01,Phone,Electronics,USA,Paris,Corporate,9,111.04,44165.71,6447.79,0.1,62
+ORD-1510,2023-08-01,Phone,Electronics,USA,Berlin,Corporate,7,1475.98,19975.67,416.15,0.21,40
+ORD-1511,2023-08-01,Laptop,Electronics,India,Mumbai,Consumer,1,1823.57,41479.48,6474.23,0.21,45
+ORD-1512,2023-08-02,Camera,Electronics,France,Mumbai,Home Office,3,1721.85,39491.79,1464.21,0.24,60
+ORD-1513,2023-08-02,Phone,Electronics,Germany,Berlin,Consumer,9,1930.81,31409.06,4141.73,0.3,64
+ORD-1514,2023-08-03,Headphones,Electronics,France,Paris,Home Office,1,1532.18,24976.82,6475.79,0.25,43
+ORD-1515,2023-08-03,Tablet,Electronics,Australia,Paris,Consumer,9,912.48,48987.77,2067.88,0.24,42
+ORD-1516,2023-08-04,Tablet,Electronics,USA,Mumbai,Consumer,8,658.31,7675.77,2004.17,0.02,46
+ORD-1517,2023-08-04,Laptop,Electronics,Germany,Sydney,Corporate,1,675.45,36395.21,3251.98,0.15,36
+ORD-1518,2023-08-04,Tablet,Electronics,France,Paris,Corporate,6,1462.62,9963.94,7162.41,0.09,50
+ORD-1519,2023-08-05,Tablet,Electronics,USA,Paris,Home Office,5,1504.38,17244.02,53.52,0.11,53
+ORD-1520,2023-08-05,Camera,Electronics,USA,New York,Consumer,6,440.7,15780.59,7216.0,0.22,31
+ORD-1521,2023-08-06,Smartwatch,Electronics,Germany,Sydney,Home Office,5,1742.84,47378.28,1272.77,0.08,31
+ORD-1522,2023-08-06,Headphones,Electronics,Australia,New York,Consumer,6,1444.1,48384.13,7921.19,0.12,52
+ORD-1523,2023-08-06,Camera,Electronics,UK,London,Consumer,5,1147.36,9559.26,7641.03,0.09,47
+ORD-1524,2023-08-07,Smartwatch,Electronics,Germany,Berlin,Corporate,5,969.49,1590.74,3982.67,0.38,45
+ORD-1525,2023-08-07,Tablet,Electronics,UK,Mumbai,Consumer,4,1109.3,36140.4,4126.13,0.38,34
+ORD-1526,2023-08-08,Laptop,Electronics,Australia,Paris,Corporate,3,360.53,21190.5,3878.32,0.24,20
+ORD-1527,2023-08-08,Laptop,Electronics,India,London,Corporate,3,447.22,4897.59,5101.78,0.37,33
+ORD-1528,2023-08-09,Tablet,Electronics,Germany,New York,Consumer,4,227.77,34345.83,771.24,0.31,63
+ORD-1529,2023-08-09,Phone,Electronics,UK,Paris,Consumer,9,349.63,27482.72,309.31,0.24,47
+ORD-1530,2023-08-09,Smartwatch,Electronics,Australia,Berlin,Home Office,2,934.7,49035.58,508.74,0.0,46
+ORD-1531,2023-08-10,Tablet,Electronics,France,New York,Home Office,9,1084.19,11756.77,3582.7,0.31,62
+ORD-1532,2023-08-10,Laptop,Electronics,USA,Sydney,Home Office,1,84.83,20496.9,2240.61,0.28,32
+ORD-1533,2023-08-11,Laptop,Electronics,India,Sydney,Corporate,1,1603.76,27356.02,4995.21,0.25,63
+ORD-1534,2023-08-11,Smartwatch,Electronics,Germany,Mumbai,Corporate,5,623.63,39689.15,7939.92,0.3,42
+ORD-1535,2023-08-11,Headphones,Electronics,UK,Paris,Corporate,6,1828.08,27667.51,3121.27,0.21,55
+ORD-1536,2023-08-12,Tablet,Electronics,France,London,Corporate,6,1936.65,30838.56,4612.04,0.28,59
+ORD-1537,2023-08-12,Camera,Electronics,UK,Mumbai,Corporate,3,411.64,11694.28,3354.05,0.37,64
+ORD-1538,2023-08-13,Tablet,Electronics,Australia,Paris,Corporate,7,951.09,42422.48,6785.81,0.15,55
+ORD-1539,2023-08-13,Headphones,Electronics,Germany,Paris,Consumer,9,52.4,21717.21,7222.78,0.28,40
+ORD-1540,2023-08-14,Smartwatch,Electronics,Australia,Paris,Home Office,8,1216.74,7477.5,7024.98,0.19,42
+ORD-1541,2023-08-14,Smartwatch,Electronics,UK,Paris,Home Office,6,1234.25,33377.3,7796.26,0.27,59
+ORD-1542,2023-08-14,Laptop,Electronics,Germany,Paris,Home Office,8,532.7,11196.48,268.78,0.31,24
+ORD-1543,2023-08-15,Headphones,Electronics,UK,Mumbai,Consumer,5,1138.9,5329.34,6726.54,0.02,39
+ORD-1544,2023-08-15,Smartwatch,Electronics,USA,Berlin,Home Office,8,489.8,43168.35,6026.59,0.26,34
+ORD-1545,2023-08-16,Phone,Electronics,Germany,Berlin,Corporate,4,363.61,23278.03,1868.12,0.09,35
+ORD-1546,2023-08-16,Tablet,Electronics,Germany,Mumbai,Consumer,8,1320.46,37589.54,7652.74,0.27,58
+ORD-1547,2023-08-16,Laptop,Electronics,India,Sydney,Consumer,2,685.55,14884.08,1228.01,0.19,27
+ORD-1548,2023-08-17,Camera,Electronics,USA,Berlin,Home Office,5,1201.01,39455.02,5452.42,0.31,27
+ORD-1549,2023-08-17,Headphones,Electronics,Germany,London,Corporate,9,894.83,6040.83,1837.88,0.05,24
+ORD-1550,2023-08-18,Laptop,Electronics,France,London,Home Office,4,1969.49,18120.68,3479.48,0.25,55
+ORD-1551,2023-08-18,Smartwatch,Electronics,UK,Sydney,Consumer,6,341.68,48914.06,5767.32,0.11,44
+ORD-1552,2023-08-19,Smartwatch,Electronics,France,Mumbai,Home Office,1,955.97,39802.49,4528.43,0.34,50
+ORD-1553,2023-08-19,Camera,Electronics,UK,London,Consumer,9,1376.89,25114.17,3448.64,0.37,18
+ORD-1554,2023-08-19,Camera,Electronics,Australia,Mumbai,Consumer,1,821.31,17318.98,2644.39,0.4,61
+ORD-1555,2023-08-20,Camera,Electronics,UK,London,Consumer,5,1950.66,43670.72,6725.29,0.32,51
+ORD-1556,2023-08-20,Camera,Electronics,India,New York,Corporate,4,1457.68,27469.96,1193.32,0.3,21
+ORD-1557,2023-08-21,Camera,Electronics,Australia,Sydney,Corporate,3,1331.12,38042.04,3469.32,0.09,34
+ORD-1558,2023-08-21,Phone,Electronics,Germany,Sydney,Home Office,6,1526.27,37828.33,7234.87,0.13,21
+ORD-1559,2023-08-21,Tablet,Electronics,UK,Sydney,Home Office,2,1907.66,1388.31,6774.5,0.19,60
+ORD-1560,2023-08-22,Headphones,Electronics,India,Mumbai,Home Office,3,1820.25,6749.56,3237.49,0.31,43
+ORD-1561,2023-08-22,Laptop,Electronics,France,Paris,Corporate,5,1462.36,33151.65,6116.71,0.37,21
+ORD-1562,2023-08-23,Camera,Electronics,Australia,Sydney,Home Office,9,1510.87,8500.18,6594.13,0.08,18
+ORD-1563,2023-08-23,Tablet,Electronics,Australia,London,Corporate,2,334.55,13146.92,7116.66,0.37,24
+ORD-1564,2023-08-24,Smartwatch,Electronics,India,New York,Consumer,8,250.45,47358.58,4378.82,0.28,47
+ORD-1565,2023-08-24,Tablet,Electronics,France,Mumbai,Consumer,2,1163.26,28229.02,1675.46,0.24,26
+ORD-1566,2023-08-24,Camera,Electronics,Australia,London,Corporate,5,85.82,37661.11,2079.71,0.08,52
+ORD-1567,2023-08-25,Laptop,Electronics,Germany,Paris,Corporate,7,990.59,28120.05,2400.77,0.02,25
+ORD-1568,2023-08-25,Camera,Electronics,UK,London,Consumer,8,460.18,27849.42,4770.73,0.23,41
+ORD-1569,2023-08-26,Tablet,Electronics,USA,Sydney,Corporate,1,724.73,5160.52,310.84,0.26,36
+ORD-1570,2023-08-26,Smartwatch,Electronics,France,New York,Consumer,6,1562.82,17511.33,5106.54,0.08,53
+ORD-1571,2023-08-26,Tablet,Electronics,UK,Sydney,Home Office,1,1885.41,14480.33,2946.62,0.22,60
+ORD-1572,2023-08-27,Camera,Electronics,USA,Berlin,Consumer,2,191.21,19841.05,2397.17,0.34,44
+ORD-1573,2023-08-27,Headphones,Electronics,Australia,Sydney,Consumer,1,1091.77,40018.04,7042.0,0.33,49
+ORD-1574,2023-08-28,Tablet,Electronics,USA,Berlin,Home Office,5,1770.94,18910.67,3707.02,0.37,31
+ORD-1575,2023-08-28,Headphones,Electronics,France,Sydney,Corporate,9,210.89,22858.99,805.67,0.15,35
+ORD-1576,2023-08-29,Camera,Electronics,UK,New York,Home Office,6,1657.8,20170.38,6622.64,0.13,45
+ORD-1577,2023-08-29,Tablet,Electronics,Australia,New York,Consumer,1,747.71,5123.69,428.75,0.3,46
+ORD-1578,2023-08-29,Smartwatch,Electronics,Australia,Mumbai,Consumer,1,678.08,22333.07,5827.66,0.17,33
+ORD-1579,2023-08-30,Phone,Electronics,Australia,Sydney,Consumer,2,1956.06,10182.66,6202.55,0.04,52
+ORD-1580,2023-08-30,Phone,Electronics,Australia,Berlin,Consumer,9,441.68,9742.8,2853.19,0.11,64
+ORD-1581,2023-08-31,Headphones,Electronics,USA,Mumbai,Consumer,3,1401.73,5154.79,6607.06,0.17,48
+ORD-1582,2023-08-31,Camera,Electronics,Australia,London,Home Office,1,1651.81,18155.21,4149.49,0.12,21
+ORD-1583,2023-08-31,Headphones,Electronics,India,New York,Consumer,5,130.31,37995.35,3733.18,0.13,54
+ORD-1584,2023-09-01,Camera,Electronics,Australia,Mumbai,Corporate,7,1357.25,14183.86,410.96,0.12,34
+ORD-1585,2023-09-01,Camera,Electronics,Australia,New York,Home Office,6,1905.52,15961.28,2355.73,0.02,56
+ORD-1586,2023-09-02,Phone,Electronics,India,Mumbai,Home Office,1,292.23,32312.4,7451.53,0.25,63
+ORD-1587,2023-09-02,Smartwatch,Electronics,UK,London,Home Office,5,1797.63,10194.12,3165.0,0.24,43
+ORD-1588,2023-09-03,Smartwatch,Electronics,Germany,London,Consumer,5,1209.81,44899.42,4396.27,0.26,56
+ORD-1589,2023-09-03,Tablet,Electronics,India,Paris,Consumer,6,1252.38,26249.43,4279.57,0.08,58
+ORD-1590,2023-09-03,Headphones,Electronics,France,Berlin,Home Office,3,1245.24,22656.35,4743.93,0.12,21
+ORD-1591,2023-09-04,Smartwatch,Electronics,UK,Paris,Consumer,5,632.73,28112.1,537.58,0.25,47
+ORD-1592,2023-09-04,Laptop,Electronics,Australia,Berlin,Corporate,7,1873.64,8718.7,2929.3,0.24,47
+ORD-1593,2023-09-05,Tablet,Electronics,USA,London,Corporate,5,1897.33,30866.92,5798.87,0.2,39
+ORD-1594,2023-09-05,Tablet,Electronics,India,Mumbai,Consumer,5,1269.34,18473.49,1644.45,0.14,28
+ORD-1595,2023-09-05,Phone,Electronics,UK,Sydney,Home Office,5,1577.67,44910.72,1668.45,0.37,19
+ORD-1596,2023-09-06,Headphones,Electronics,UK,New York,Consumer,3,1243.9,8858.28,130.22,0.14,61
+ORD-1597,2023-09-06,Smartwatch,Electronics,Australia,London,Consumer,1,994.58,25599.03,3527.98,0.18,29
+ORD-1598,2023-09-07,Smartwatch,Electronics,Germany,London,Consumer,5,1338.6,30106.58,7067.74,0.27,47
+ORD-1599,2023-09-07,Camera,Electronics,USA,Mumbai,Home Office,9,1128.35,2152.49,462.61,0.22,53
+ORD-1600,2023-09-08,Tablet,Electronics,USA,Sydney,Corporate,1,1215.08,9999999.0,1569.39,0.14,35
+ORD-1601,2023-09-08,Headphones,Electronics,USA,London,Consumer,3,1578.47,36765.44,2515.17,0.17,43
+ORD-1602,2023-09-08,Headphones,Electronics,France,London,Home Office,4,987.76,41108.69,5867.21,0.32,24
+ORD-1603,2023-09-09,Headphones,Electronics,UK,Mumbai,Home Office,1,129.47,16001.52,5143.05,0.11,18
+ORD-1604,2023-09-09,Camera,Electronics,France,London,Corporate,1,369.8,40030.37,3356.75,0.06,43
+ORD-1605,2023-09-10,Phone,Electronics,France,Berlin,Home Office,8,905.28,48403.92,6084.6,0.13,40
+ORD-1606,2023-09-10,Smartwatch,Electronics,UK,Berlin,Home Office,2,1463.41,42915.26,4896.57,0.34,43
+ORD-1607,2023-09-10,Headphones,Electronics,USA,Sydney,Home Office,8,1206.89,6323.38,7173.52,0.04,62
+ORD-1608,2023-09-11,Camera,Electronics,UK,Berlin,Corporate,7,1318.07,37116.65,6553.31,0.4,23
+ORD-1609,2023-09-11,Phone,Electronics,Germany,Berlin,Consumer,2,984.59,16323.51,2059.87,0.22,23
+ORD-1610,2023-09-12,Camera,Electronics,UK,London,Corporate,6,1250.7,49426.59,2207.94,0.39,61
+ORD-1611,2023-09-12,Laptop,Electronics,Australia,New York,Consumer,6,691.58,24525.27,1046.58,0.38,25
+ORD-1612,2023-09-13,Tablet,Electronics,UK,Berlin,Home Office,3,966.86,6560.48,2728.87,0.18,41
+ORD-1613,2023-09-13,Smartwatch,Electronics,India,Sydney,Home Office,2,1501.34,36396.68,7996.37,0.08,39
+ORD-1614,2023-09-13,Camera,Electronics,Germany,Berlin,Consumer,1,1750.07,16489.05,3275.72,0.07,36
+ORD-1615,2023-09-14,Camera,Electronics,India,London,Corporate,6,895.63,49855.37,1802.88,0.1,54
+ORD-1616,2023-09-14,Smartwatch,Electronics,USA,Paris,Corporate,5,135.14,48999.23,6111.74,0.28,35
+ORD-1617,2023-09-15,Tablet,Electronics,USA,London,Corporate,9,365.26,32978.63,4362.64,0.11,48
+ORD-1618,2023-09-15,Laptop,Electronics,Australia,Mumbai,Consumer,1,90.68,6926.41,1239.33,0.14,54
+ORD-1619,2023-09-15,Phone,Electronics,Australia,Sydney,Home Office,7,1323.86,34499.62,3076.48,0.18,47
+ORD-1620,2023-09-16,Camera,Electronics,Australia,Berlin,Home Office,5,698.01,5105.01,3345.03,0.37,59
+ORD-1621,2023-09-16,Tablet,Electronics,Germany,Mumbai,Home Office,5,1107.83,1953.53,6042.95,0.08,50
+ORD-1622,2023-09-17,Phone,Electronics,France,Berlin,Consumer,2,1011.89,41236.44,214.34,0.0,27
+ORD-1623,2023-09-17,Phone,Electronics,UK,Paris,Home Office,3,208.98,10882.77,2188.71,0.02,54
+ORD-1624,2023-09-18,Phone,Electronics,India,New York,Home Office,7,836.36,19261.84,4164.89,0.36,29
+ORD-1625,2023-09-18,Laptop,Electronics,Germany,Paris,Corporate,6,480.09,48686.14,2187.33,0.26,47
+ORD-1626,2023-09-18,Laptop,Electronics,India,London,Home Office,2,865.88,17173.6,5046.05,0.11,44
+ORD-1627,2023-09-19,Phone,Electronics,UK,London,Corporate,6,446.98,15176.24,3880.85,0.07,56
+ORD-1628,2023-09-19,Headphones,Electronics,France,Mumbai,Consumer,2,1688.88,45951.3,2925.6,0.12,26
+ORD-1629,2023-09-20,Smartwatch,Electronics,India,Mumbai,Corporate,2,389.68,5982.05,7596.21,0.05,38
+ORD-1630,2023-09-20,Laptop,Electronics,Germany,London,Home Office,2,1923.52,38099.33,5075.67,0.38,29
+ORD-1631,2023-09-20,Headphones,Electronics,UK,Sydney,Home Office,3,861.02,49409.25,1083.03,0.31,46
+ORD-1632,2023-09-21,Headphones,Electronics,Australia,London,Corporate,2,1700.18,45114.15,4502.73,0.18,50
+ORD-1633,2023-09-21,Camera,Electronics,Australia,London,Home Office,4,1276.09,32757.56,6256.82,0.35,60
+ORD-1634,2023-09-22,Smartwatch,Electronics,Australia,Berlin,Corporate,9,1483.93,16046.01,5682.49,0.1,32
+ORD-1635,2023-09-22,Phone,Electronics,UK,Paris,Home Office,6,1547.06,13088.94,1418.11,0.29,19
+ORD-1636,2023-09-23,Camera,Electronics,France,Sydney,Corporate,1,1034.45,41053.13,7780.74,0.34,56
+ORD-1637,2023-09-23,Camera,Electronics,Germany,Berlin,Corporate,8,1109.44,44051.18,3618.07,0.14,61
+ORD-1638,2023-09-23,Headphones,Electronics,Australia,New York,Consumer,7,1052.29,26509.03,1314.25,0.3,35
+ORD-1639,2023-09-24,Headphones,Electronics,UK,Sydney,Corporate,3,1196.71,12594.83,1482.56,0.12,20
+ORD-1640,2023-09-24,Headphones,Electronics,India,Berlin,Corporate,1,107.32,6090.69,830.97,0.12,24
+ORD-1641,2023-09-25,Phone,Electronics,Australia,London,Consumer,5,821.25,4815.38,6437.97,0.04,60
+ORD-1642,2023-09-25,Phone,Electronics,USA,Berlin,Home Office,4,1232.07,36094.33,1020.14,0.18,35
+ORD-1643,2023-09-25,Camera,Electronics,Germany,Mumbai,Corporate,8,1215.56,21295.88,1044.75,0.29,61
+ORD-1644,2023-09-26,Camera,Electronics,India,Sydney,Consumer,1,1596.26,45315.31,6811.25,0.38,55
+ORD-1645,2023-09-26,Laptop,Electronics,France,London,Consumer,1,1327.27,37113.73,2789.6,0.24,54
+ORD-1646,2023-09-27,Laptop,Electronics,France,Paris,Corporate,4,1984.66,9967.39,295.32,0.35,50
+ORD-1647,2023-09-27,Headphones,Electronics,UK,Berlin,Home Office,8,603.52,30881.98,462.57,0.33,61
+ORD-1648,2023-09-28,Phone,Electronics,France,London,Consumer,5,750.34,22057.52,1180.26,0.07,48
+ORD-1649,2023-09-28,Phone,Electronics,USA,Sydney,Corporate,2,798.5,29073.86,1746.48,0.19,28
+ORD-1650,2023-09-28,Camera,Electronics,Australia,Mumbai,Consumer,6,958.33,37034.42,5337.91,0.05,21
+ORD-1651,2023-09-29,Smartwatch,Electronics,India,Mumbai,Home Office,5,1680.2,40406.7,1300.74,0.27,35
+ORD-1652,2023-09-29,Headphones,Electronics,Australia,Sydney,Corporate,2,509.79,42265.0,995.05,0.38,21
+ORD-1653,2023-09-30,Laptop,Electronics,Germany,Sydney,Corporate,3,1563.2,13071.76,6129.52,0.05,51
+ORD-1654,2023-09-30,Smartwatch,Electronics,Australia,Berlin,Home Office,9,840.35,2040.22,5384.89,0.29,46
+ORD-1655,2023-09-30,Phone,Electronics,UK,London,Home Office,7,1223.62,37095.09,3510.83,0.25,41
+ORD-1656,2023-10-01,Laptop,Electronics,Australia,Paris,Consumer,7,1283.45,5764.01,4417.01,0.23,39
+ORD-1657,2023-10-01,Headphones,Electronics,Germany,Sydney,Corporate,6,777.05,16088.52,2530.27,0.16,19
+ORD-1658,2023-10-02,Phone,Electronics,India,Sydney,Consumer,8,1049.6,688.95,3885.88,0.14,61
+ORD-1659,2023-10-02,Headphones,Electronics,USA,New York,Corporate,4,855.41,34242.64,4078.05,0.02,23
+ORD-1660,2023-10-03,Camera,Electronics,India,Mumbai,Consumer,8,184.81,8773.03,3128.54,0.09,59
+ORD-1661,2023-10-03,Smartwatch,Electronics,India,New York,Corporate,4,902.47,32936.48,7257.25,0.01,42
+ORD-1662,2023-10-03,Smartwatch,Electronics,UK,Paris,Home Office,8,239.92,49591.26,177.69,0.23,38
+ORD-1663,2023-10-04,Smartwatch,Electronics,Germany,Sydney,Consumer,9,839.79,4097.21,6268.26,0.04,33
+ORD-1664,2023-10-04,Tablet,Electronics,India,Berlin,Corporate,3,1206.19,4315.36,1038.84,0.35,48
+ORD-1665,2023-10-05,Headphones,Electronics,India,Mumbai,Corporate,3,1179.86,17348.81,6390.5,0.21,31
+ORD-1666,2023-10-05,Smartwatch,Electronics,USA,New York,Consumer,2,1342.11,43386.13,4946.5,0.28,56
+ORD-1667,2023-10-05,Camera,Electronics,France,Mumbai,Home Office,3,235.76,11168.73,6754.06,0.16,45
+ORD-1668,2023-10-06,Smartwatch,Electronics,USA,New York,Home Office,3,1321.64,18338.7,825.24,0.22,49
+ORD-1669,2023-10-06,Headphones,Electronics,Germany,Sydney,Consumer,5,658.69,3891.02,4493.9,0.38,45
+ORD-1670,2023-10-07,Smartwatch,Electronics,Germany,London,Consumer,5,828.14,38276.19,4033.65,0.03,26
+ORD-1671,2023-10-07,Headphones,Electronics,UK,London,Corporate,2,1723.07,20711.16,5664.24,0.1,62
+ORD-1672,2023-10-08,Phone,Electronics,Australia,Berlin,Corporate,6,67.61,38082.81,4297.61,0.31,39
+ORD-1673,2023-10-08,Camera,Electronics,Australia,Paris,Home Office,5,1197.4,45228.59,4348.84,0.04,49
+ORD-1674,2023-10-08,Headphones,Electronics,Australia,Mumbai,Home Office,6,1217.49,12021.78,3465.29,0.03,22
+ORD-1675,2023-10-09,Headphones,Electronics,France,Paris,Home Office,1,823.49,40466.1,2505.23,0.14,40
+ORD-1676,2023-10-09,Tablet,Electronics,Germany,New York,Consumer,5,512.2,3425.15,3884.0,0.04,22
+ORD-1677,2023-10-10,Phone,Electronics,France,Sydney,Consumer,9,507.61,44992.95,992.01,0.23,59
+ORD-1678,2023-10-10,Camera,Electronics,Australia,Berlin,Consumer,2,1773.23,32713.04,7694.03,0.09,49
+ORD-1679,2023-10-10,Tablet,Electronics,Australia,London,Home Office,1,911.95,43774.22,5729.57,0.36,27
+ORD-1680,2023-10-11,Smartwatch,Electronics,USA,London,Home Office,9,695.23,509.33,7622.11,0.31,56
+ORD-1681,2023-10-11,Headphones,Electronics,Germany,Berlin,Home Office,9,925.12,8869.51,1852.48,0.28,32
+ORD-1682,2023-10-12,Camera,Electronics,Australia,Mumbai,Home Office,9,1355.31,19793.09,7040.76,0.25,24
+ORD-1683,2023-10-12,Phone,Electronics,India,Paris,Consumer,6,334.23,19285.39,6479.88,0.35,46
+ORD-1684,2023-10-13,Tablet,Electronics,Germany,New York,Corporate,8,926.4,11723.15,5433.36,0.09,64
+ORD-1685,2023-10-13,Headphones,Electronics,France,Paris,Consumer,1,1196.37,19389.79,5018.98,0.35,20
+ORD-1686,2023-10-13,Laptop,Electronics,Germany,London,Corporate,4,1899.74,6878.01,2566.57,0.32,36
+ORD-1687,2023-10-14,Camera,Electronics,UK,Berlin,Corporate,1,542.43,20931.68,6540.47,0.3,27
+ORD-1688,2023-10-14,Tablet,Electronics,India,London,Consumer,8,750.54,40216.54,4037.05,0.22,45
+ORD-1689,2023-10-15,Phone,Electronics,Australia,Sydney,Consumer,1,789.75,24213.97,613.59,0.1,46
+ORD-1690,2023-10-15,Tablet,Electronics,UK,London,Consumer,3,1230.8,1391.0,2537.26,0.17,32
+ORD-1691,2023-10-15,Tablet,Electronics,USA,New York,Home Office,4,745.63,21361.48,7485.61,0.32,52
+ORD-1692,2023-10-16,Tablet,Electronics,Germany,Mumbai,Consumer,8,1090.35,1845.16,6812.91,0.01,23
+ORD-1693,2023-10-16,Smartwatch,Electronics,Germany,Mumbai,Home Office,6,1574.49,48329.05,7856.15,0.31,29
+ORD-1694,2023-10-17,Laptop,Electronics,USA,Sydney,Corporate,7,1425.5,6808.97,5042.55,0.1,64
+ORD-1695,2023-10-17,Phone,Electronics,UK,New York,Consumer,8,920.42,35530.57,2017.71,0.06,55
+ORD-1696,2023-10-18,Phone,Electronics,India,Berlin,Home Office,2,1735.22,48652.43,1344.38,0.05,30
+ORD-1697,2023-10-18,Phone,Electronics,Australia,Paris,Home Office,8,1138.37,41388.93,1535.97,0.01,46
+ORD-1698,2023-10-18,Headphones,Electronics,UK,Berlin,Home Office,3,1102.82,35116.11,207.38,0.21,36
+ORD-1699,2023-10-19,Camera,Electronics,France,Paris,Consumer,7,116.67,42053.32,3155.92,0.09,20
+ORD-1700,2023-10-19,Phone,Electronics,Australia,Mumbai,Corporate,3,1974.05,49099.04,1571.85,0.4,25
+ORD-1701,2023-10-20,Camera,Electronics,UK,London,Consumer,7,289.79,31256.55,3322.66,0.23,25
+ORD-1702,2023-10-20,Phone,Electronics,India,London,Home Office,2,500.71,28179.65,7483.21,0.06,37
+ORD-1703,2023-10-20,Laptop,Electronics,Germany,Sydney,Corporate,6,150.81,31597.79,3472.79,0.28,64
+ORD-1704,2023-10-21,Headphones,Electronics,UK,Berlin,Corporate,3,1298.01,26867.46,7029.98,0.36,21
+ORD-1705,2023-10-21,Headphones,Electronics,USA,New York,Corporate,3,488.17,31936.91,4863.76,0.3,38
+ORD-1706,2023-10-22,Tablet,Electronics,India,Paris,Corporate,9,401.02,22767.19,2014.7,0.03,20
+ORD-1707,2023-10-22,Smartwatch,Electronics,Germany,London,Home Office,7,222.68,11312.94,2879.05,0.36,62
+ORD-1708,2023-10-23,Headphones,Electronics,India,Sydney,Home Office,5,251.45,6452.24,717.16,0.32,25
+ORD-1709,2023-10-23,Headphones,Electronics,Australia,Berlin,Corporate,7,1190.11,3882.88,2701.03,0.06,40
+ORD-1710,2023-10-23,Laptop,Electronics,USA,New York,Corporate,9,1392.01,13534.13,5436.45,0.02,33
+ORD-1711,2023-10-24,Phone,Electronics,Australia,Mumbai,Corporate,1,824.89,2783.12,623.28,0.22,30
+ORD-1712,2023-10-24,Headphones,Electronics,Australia,New York,Corporate,7,985.8,28574.95,1682.94,0.06,20
+ORD-1713,2023-10-25,Headphones,Electronics,France,Mumbai,Home Office,6,1387.64,14549.51,3082.46,0.33,26
+ORD-1714,2023-10-25,Smartwatch,Electronics,India,Berlin,Corporate,9,83.89,41314.47,7857.29,0.14,31
+ORD-1715,2023-10-25,Camera,Electronics,India,New York,Corporate,1,680.1,4174.92,6289.65,0.37,30
+ORD-1716,2023-10-26,Laptop,Electronics,UK,Sydney,Consumer,4,1947.54,11704.4,5881.22,0.23,24
+ORD-1717,2023-10-26,Smartwatch,Electronics,USA,Berlin,Home Office,9,1181.22,36647.18,973.72,0.07,32
+ORD-1718,2023-10-27,Headphones,Electronics,USA,Mumbai,Corporate,4,545.74,30141.01,6258.92,0.06,24
+ORD-1719,2023-10-27,Headphones,Electronics,France,Sydney,Corporate,3,1067.37,3692.32,6292.89,0.23,55
+ORD-1720,2023-10-28,Laptop,Electronics,USA,London,Consumer,9,718.17,43923.35,4828.77,0.3,51
+ORD-1721,2023-10-28,Tablet,Electronics,India,Sydney,Corporate,2,1087.88,43924.46,7923.38,0.31,58
+ORD-1722,2023-10-28,Tablet,Electronics,France,London,Corporate,4,295.2,16855.2,2635.77,0.11,39
+ORD-1723,2023-10-29,Headphones,Electronics,USA,Sydney,Corporate,6,308.79,17350.09,7533.12,0.08,41
+ORD-1724,2023-10-29,Headphones,Electronics,France,Mumbai,Consumer,2,329.91,49456.9,7322.11,0.01,54
+ORD-1725,2023-10-30,Smartwatch,Electronics,USA,Paris,Home Office,8,1882.65,31495.72,141.27,0.27,61
+ORD-1726,2023-10-30,Camera,Electronics,USA,Paris,Consumer,8,1479.15,26800.17,3628.43,0.03,18
+ORD-1727,2023-10-30,Camera,Electronics,UK,London,Home Office,1,366.64,41988.53,7817.98,0.17,27
+ORD-1728,2023-10-31,Smartwatch,Electronics,USA,London,Consumer,3,417.28,14621.87,869.81,0.24,60
+ORD-1729,2023-10-31,Smartwatch,Electronics,France,New York,Consumer,9,1475.12,21744.54,4404.89,0.37,33
+ORD-1730,2023-11-01,Phone,Electronics,India,Sydney,Corporate,5,354.52,13754.95,7832.71,0.12,63
+ORD-1731,2023-11-01,Headphones,Electronics,UK,Sydney,Home Office,6,507.39,39563.46,4466.19,0.1,25
+ORD-1732,2023-11-02,Phone,Electronics,USA,Sydney,Home Office,4,1928.53,28880.79,1559.03,0.26,42
+ORD-1733,2023-11-02,Tablet,Electronics,USA,Sydney,Home Office,2,547.85,33111.84,4678.36,0.25,29
+ORD-1734,2023-11-02,Headphones,Electronics,France,New York,Home Office,8,1340.18,12989.21,1675.3,0.13,42
+ORD-1735,2023-11-03,Headphones,Electronics,UK,London,Corporate,6,1958.33,11401.15,4181.65,0.37,34
+ORD-1736,2023-11-03,Laptop,Electronics,USA,Paris,Corporate,5,779.88,24674.54,638.64,0.34,43
+ORD-1737,2023-11-04,Headphones,Electronics,India,New York,Consumer,9,84.16,37009.5,4863.59,0.09,63
+ORD-1738,2023-11-04,Tablet,Electronics,Australia,Mumbai,Consumer,1,526.09,26499.37,4158.48,0.1,31
+ORD-1739,2023-11-04,Camera,Electronics,India,New York,Corporate,5,1670.21,2115.96,5934.28,0.2,58
+ORD-1740,2023-11-05,Camera,Electronics,USA,New York,Consumer,6,1735.99,43493.3,5064.07,0.31,53
+ORD-1741,2023-11-05,Headphones,Electronics,India,New York,Corporate,5,1548.61,3702.0,4419.37,0.02,40
+ORD-1742,2023-11-06,Camera,Electronics,UK,Berlin,Home Office,6,270.56,47813.31,5533.74,0.28,60
+ORD-1743,2023-11-06,Phone,Electronics,USA,Mumbai,Consumer,6,1601.25,1744.53,1194.34,0.26,23
+ORD-1744,2023-11-07,Headphones,Electronics,France,London,Corporate,7,1841.42,34875.3,4783.11,0.09,64
+ORD-1745,2023-11-07,Phone,Electronics,UK,Paris,Home Office,4,1221.19,4569.25,1418.28,0.27,22
+ORD-1746,2023-11-07,Smartwatch,Electronics,India,Paris,Home Office,8,1884.71,45578.49,7407.9,0.38,60
+ORD-1747,2023-11-08,Smartwatch,Electronics,USA,London,Home Office,7,1662.34,23489.45,593.26,0.02,42
+ORD-1748,2023-11-08,Laptop,Electronics,UK,Berlin,Corporate,9,1350.59,7307.43,3471.48,0.13,35
+ORD-1749,2023-11-09,Headphones,Electronics,India,Paris,Corporate,7,1175.51,17370.38,5581.59,0.18,30
+ORD-1750,2023-11-09,Smartwatch,Electronics,USA,New York,Corporate,3,729.72,8658.82,3691.28,0.36,60
+ORD-1751,2023-11-09,Smartwatch,Electronics,Australia,Paris,Home Office,3,360.61,8943.8,782.16,0.38,31
+ORD-1752,2023-11-10,Camera,Electronics,Germany,Mumbai,Home Office,8,1229.66,47431.36,4449.36,0.18,45
+ORD-1753,2023-11-10,Laptop,Electronics,France,Mumbai,Home Office,5,670.32,22539.68,5150.97,0.3,35
+ORD-1754,2023-11-11,Laptop,Electronics,India,London,Corporate,4,1739.56,39545.71,5645.15,0.21,45
+ORD-1755,2023-11-11,Camera,Electronics,Australia,Berlin,Corporate,8,1987.01,32160.48,3017.42,0.22,44
+ORD-1756,2023-11-12,Headphones,Electronics,India,Sydney,Consumer,6,1517.23,33983.1,4531.1,0.11,49
+ORD-1757,2023-11-12,Phone,Electronics,Germany,Sydney,Home Office,2,226.44,7018.83,3632.96,0.09,64
+ORD-1758,2023-11-12,Headphones,Electronics,Germany,Berlin,Corporate,4,612.94,12092.13,5392.85,0.12,26
+ORD-1759,2023-11-13,Phone,Electronics,UK,Paris,Consumer,4,262.76,39444.14,4689.28,0.22,57
+ORD-1760,2023-11-13,Laptop,Electronics,France,Berlin,Consumer,6,1318.5,48552.93,4229.76,0.01,49
+ORD-1761,2023-11-14,Tablet,Electronics,France,Berlin,Home Office,6,1542.12,13502.44,2033.72,0.36,37
+ORD-1762,2023-11-14,Headphones,Electronics,India,Paris,Home Office,1,1855.07,13942.65,66.05,0.06,45
+ORD-1763,2023-11-14,Tablet,Electronics,Germany,Mumbai,Corporate,8,904.44,23908.41,1433.95,0.09,50
+ORD-1764,2023-11-15,Phone,Electronics,France,New York,Consumer,6,1807.68,49200.1,980.68,0.21,21
+ORD-1765,2023-11-15,Headphones,Electronics,USA,London,Home Office,3,1761.89,13813.47,3620.22,0.28,63
+ORD-1766,2023-11-16,Tablet,Electronics,France,Sydney,Home Office,9,668.53,20645.11,4917.45,0.04,51
+ORD-1767,2023-11-16,Tablet,Electronics,India,Mumbai,Consumer,2,1744.36,44628.26,1744.03,0.13,20
+ORD-1768,2023-11-17,Headphones,Electronics,Australia,Berlin,Home Office,8,782.56,644.59,7515.5,0.39,43
+ORD-1769,2023-11-17,Tablet,Electronics,Australia,Berlin,Consumer,3,628.9,2468.42,103.12,0.1,25
+ORD-1770,2023-11-17,Headphones,Electronics,France,Sydney,Consumer,5,1315.7,30401.55,6189.79,0.13,23
+ORD-1771,2023-11-18,Tablet,Electronics,UK,Paris,Home Office,6,690.34,45415.32,5020.38,0.33,33
+ORD-1772,2023-11-18,Laptop,Electronics,Germany,London,Consumer,6,1278.91,12323.4,3019.76,0.02,41
+ORD-1773,2023-11-19,Headphones,Electronics,Australia,New York,Consumer,4,1239.17,23747.27,451.39,0.19,56
+ORD-1774,2023-11-19,Laptop,Electronics,India,Paris,Corporate,3,1148.71,22798.03,5038.52,0.15,47
+ORD-1775,2023-11-19,Camera,Electronics,India,Sydney,Consumer,4,791.82,23912.08,3115.63,0.13,62
+ORD-1776,2023-11-20,Smartwatch,Electronics,Germany,Paris,Home Office,1,1119.57,31314.72,7493.32,0.11,30
+ORD-1777,2023-11-20,Laptop,Electronics,Germany,New York,Consumer,4,1213.15,23752.32,4358.82,0.04,22
+ORD-1778,2023-11-21,Tablet,Electronics,Germany,New York,Consumer,1,1114.09,22649.67,7520.23,0.13,42
+ORD-1779,2023-11-21,Phone,Electronics,Australia,Berlin,Home Office,1,916.62,23977.28,1802.85,0.02,37
+ORD-1780,2023-11-22,Camera,Electronics,India,Paris,Consumer,6,78.6,29747.94,5819.52,0.31,35
+ORD-1781,2023-11-22,Laptop,Electronics,Germany,Mumbai,Consumer,5,1194.77,27081.87,4957.13,0.16,64
+ORD-1782,2023-11-22,Camera,Electronics,Australia,Mumbai,Consumer,4,378.47,42779.73,5928.3,0.18,35
+ORD-1783,2023-11-23,Laptop,Electronics,Germany,Paris,Home Office,3,1303.02,2950.09,1756.61,0.36,19
+ORD-1784,2023-11-23,Laptop,Electronics,India,New York,Corporate,1,1530.72,41749.2,5336.71,0.26,27
+ORD-1785,2023-11-24,Phone,Electronics,India,London,Corporate,6,1025.87,42274.27,4009.42,0.0,62
+ORD-1786,2023-11-24,Phone,Electronics,UK,New York,Consumer,2,1107.61,14602.95,5955.46,0.38,64
+ORD-1787,2023-11-24,Laptop,Electronics,France,New York,Home Office,8,1905.38,23411.17,2650.0,0.09,29
+ORD-1788,2023-11-25,Smartwatch,Electronics,USA,London,Home Office,5,1701.98,22207.66,7125.95,0.04,64
+ORD-1789,2023-11-25,Phone,Electronics,India,Sydney,Home Office,7,1832.76,11316.24,720.2,0.31,30
+ORD-1790,2023-11-26,Phone,Electronics,USA,New York,Home Office,2,1636.84,20141.44,6467.16,0.2,64
+ORD-1791,2023-11-26,Phone,Electronics,UK,London,Corporate,8,262.39,2697.19,6897.49,0.17,28
+ORD-1792,2023-11-27,Headphones,Electronics,France,Paris,Home Office,2,340.53,14252.19,6547.16,0.1,36
+ORD-1793,2023-11-27,Camera,Electronics,Australia,London,Corporate,4,1076.92,40925.77,4126.17,0.22,52
+ORD-1794,2023-11-27,Laptop,Electronics,France,Mumbai,Consumer,1,529.84,14585.83,3535.16,0.11,56
+ORD-1795,2023-11-28,Smartwatch,Electronics,France,London,Consumer,5,979.56,41001.23,7970.29,0.36,43
+ORD-1796,2023-11-28,Phone,Electronics,Australia,New York,Home Office,9,819.01,26814.17,1871.92,0.09,63
+ORD-1797,2023-11-29,Headphones,Electronics,UK,Sydney,Home Office,1,1121.36,44053.2,4397.66,0.35,31
+ORD-1798,2023-11-29,Camera,Electronics,Germany,Paris,Corporate,9,1506.41,28951.59,5381.87,0.22,62
+ORD-1799,2023-11-29,Tablet,Electronics,France,London,Consumer,8,1445.21,1968.58,5621.9,0.33,61
